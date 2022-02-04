@@ -8,14 +8,30 @@ use App\Models\ModeleIdentifiant;
 use App\Models\Modele_commande;
 use App\Models\ModeleLigne;
 
-helper(['url', 'assets']);
+helper(['url', 'assets', 'form']);
 class client extends BaseController
 {
+  public function droit_a_loubli(){
+    $session = session();
+    $modelCli = new ModeleClient();
+    $client= $modelCli->retourner_client_par_no($session->get('id'));
+    if ($client != null){
+      $client['NOM'] = null;
+      $client['PRENOM'] = null;
+      $client['ADRESSE'] = null;
+      $client['VILLE'] = null;
+      $client['CODEPOSTAL'] = null;
+      $client['MOTDEPASSE'] = null;
+      $modelCli->droit_a_loubli($client);
+      //dd($client);
+    }
+    return redirect()->to('Visiteur/lister_les_produits');
+  }
     public function se_de_connecter()
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('Visiteur/accueil');
+        return redirect()->to('Visiteur/lister_les_produits');
     }
     function validation_commande()
     {

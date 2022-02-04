@@ -9,7 +9,7 @@ class ModeleCategorie extends Model
 
     protected $table = 'categorie';
     protected $allowedFields = ['NOCATEGORIE', 'LIBELLE'];
-    protected $primaryKeyn= 'NOCATEGORIE';
+    protected $primaryKey= 'NOCATEGORIE';
 
     public function inserer_une_categorie($pDonneesAInserer)
     {

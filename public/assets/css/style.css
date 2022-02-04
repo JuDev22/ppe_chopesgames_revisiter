@@ -1,3 +1,6 @@
+body{
+  height: 100vh;
+}
 /* navbar */
 .navbar-nav > li
 {
@@ -6,7 +9,6 @@
     margin-top:10px;
     margin-bottom:10px;
 }
-
 /* se connecter/s'enregistrer */
 .right {
     float: right;
@@ -182,12 +184,30 @@ body > nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-bottom > div h4 {
   color: rgb(247, 244, 244);
 }
 
-
-
-
-
-
 .input-res
 {
      max-width: 100%;
+}
+.sm{
+  max-height: 31px!important;
+}
+.ft{
+  font-size: 22px;
+}
+.li-none{
+  list-style: none;
+}
+.line-height-auto{
+  line-height: auto;
+}
+.text-decoration{
+  text-decoration: none;
+  color: white;
+}
+.dropdown-item.d-flex.align-items-center.gap-2.py-2 a{
+  text-decoration: none;
+  color: rgb(255,255,255);
+}
+.dropdown-menu.dropdown-menu-dark.border-0.pt-0.mx-0.rounded-3.shadow.overflow-hidden{
+  width: 180px!important;
 }

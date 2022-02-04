@@ -1,33 +1,52 @@
-</main>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-<div class='container-fluid '>
-
-        	<div class="col-md-3 col-sm-6">
-            	<img class="navbar-brand" style="height:64px;" src="<?= base_url().'/assets/images/logo.jpg'?>" alt="Logo">
-                <a href="<?php echo site_url('Visiteur/flux_rss') ?>">
-                <img class="navbar-brand" style="height:60px;" src="<?= base_url().'/assets/images/rss.png'?>" width="60">
-                </a>
-                <BR>© Adrien Lorin, 2020 - D. Boucard and co
-            </div>
-        	<div class="col-md-3 col-sm-6">
-            	<h4>Nous contacter</h4>
-                <a href='https://www.google.fr/maps/place/Lyc%C3%A9e+Rabelais/@48.5042205,-2.7503218,17z/data=!4m13!1m7!3m6!1s0x480e1d185a2011d3:0xca3c59f0bff91073!2s8+Rue+Rabelais,+22000+Saint-Brieuc!3b1!8m2!3d48.5042205!4d-2.7481331!3m4!1s0x480e1d18e9d8109d:0x739b07353bbf2d23!8m2!3d48.5042841!4d-2.7468056'><i class="fas fa-map-marker-alt"></i> 8 Rue Rabelais, 22000 Saint-Brieuc</a>
-                <a href='mailto:master@chopesgames.com'><i class="fas fa-envelope"></i> master@chopesgames.com</a>
-                <a href="#"><i class="fas fa-phone"></i> 02 96 00 00 00</a><br/>
-            </div>
-        	<div class="col-md-3 col-sm-6">
-            	<h4>Nous suivre</h4>
-                	<a href="https://www.facebook.com/ChopesGamesShop"><i class="fab fa-facebook-square"></i> Facebook</a>
-                	<a href="https://www.twitter.com/ChopesGamesShop"><i class="fab fa-twitter-square"></i> Twitter</a>
-                	<a href="https://www.Instagram.com/ChopesGamesShop"><i class="fab fa-instagram"></i> Instagram</a><br/>
-            </div>
-            
-        	<div class="col-md-3 col-sm-6">
-            	<h4></h4>
-            </div>
-        
+<div class="container-fluid bg-dark mx-0 sticky-lg-bottom">
+    <footer class="row row-cols-5 p-5 mt-1 border-top ">
+        <div class="col">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <p class="text-muted">© 2022 | ChopesGames - Julian</p>
         </div>
-</nav>
+        <div class="col">
+            <h5 class="text-muted">Nous contacter</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="https://www.google.fr/maps/place/Lyc%C3%A9e+Rabelais/@48.5042205,-2.7503218,17z/data=!4m13!1m7!3m6!1s0x480e1d185a2011d3:0xca3c59f0bff91073!2s8+Rue+Rabelais,+22000+Saint-Brieuc!3b1!8m2!3d48.5042205!4d-2.7481331!3m4!1s0x480e1d18e9d8109d:0x739b07353bbf2d23!8m2!3d48.5042841!4d-2.7468056" class="nav-link p-0 text-muted"><i class="fas fa-map-marker-alt"></i> 8 Rue Rabelais, 22000 - Saint-Brieuc</a></li>
+                <li class="nav-item mb-2"><a href='mailto:master@chopesgames.com' class="nav-link p-0 text-muted"><i class="fas fa-envelope"></i> master@chopesgames.com</a></li>
+                <li class="nav-item mb-2"><a href="telto:0296000000" class="nav-link p-0 text-muted"><i class="fas fa-phone"></i>02 96 00 00 00</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h5 class="text-muted">Nous suivre</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="https://www.facebook.com/ChopesGamesShop" class="nav-link p-0 text-muted"><i class="fab fa-facebook-square"></i> Facebook</a></li>
+                <li class="nav-item mb-2"><a href="https://www.twitter.com/ChopesGamesShop" class="nav-link p-0 text-muted"><i class="fab fa-twitter-square"></i> Twitter</a></li>
+                <li class="nav-item mb-2"><a href="https://www.Instagram.com/ChopesGamesShop" class="nav-link p-0 text-muted"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h4 class="text-muted">Lettre d'information</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2 text-muted">Abonnez-vous à notre lettre d'information pour ne rien rater</li>
+                <?= form_open('Visiteur/abonne') ?>
+                <span class="d-flex">
+                    <div class="form-floating mb-3">
+                        <input type="mail" class="form-control mx-1" method="post" id="floatingInput" placeholder="Votre mail" value="<?= set_value('email') ?>">
+                        <label for="floatingInput">E-mail</label>
+                        <button class="btn btn-success mx-1 btn-sm" type="submit">
+                            <i class="far fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </span>
+                <?= form_close() ?>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

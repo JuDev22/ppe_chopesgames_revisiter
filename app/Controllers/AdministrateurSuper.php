@@ -1,15 +1,206 @@
 <?php
+
 namespace App\Controllers;
+
+use App\Models\ModeleAdministrateur;
 use App\Models\ModeleProduit;
 use App\Models\ModeleCategorie;
+use App\Models\ModeleClient;
 use App\Models\ModeleIdentifiant;
 use App\Models\ModeleMarque;
+use App\Models\ModeleAbonne;
+use App\Models\ModeleNouvelle;
 
 helper(['url', 'assets', 'form']);
 
 class AdministrateurSuper extends BaseController
 {
+    public function lettre_information($prod = false)
+    {
+        $validation = \Config\Services::validation();
+        $modelCat = new ModeleCategorie();
+        $data['categories'] = $modelCat->retourner_categories();
+        $ModelAbo = new ModeleAbonne();
+        $data['mailAbonne'] = $ModelAbo->recuperer_mail();
+        $ModelNouv = new ModeleNouvelle();
+        $data['infoLettre'] = $ModelNouv->retourner_lettre();
+        $ModelAbo = new ModeleAbonne();
+        $data['TitreDeLaPage'] = "Lettre d'information";
+        $rules = [
+            'objet' => 'required|max_length[20]',
+            'titre' => 'required|max_length[20]',
+            'message' => 'required|max_length[200]',
+        ];
+        if (!$this->validate($rules)) {
+            if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
+            else {
+                if ($prod == false) {
+                    $data['TitreDeLaPage'] = "Lettre d'information";
+                }
+                // else { //abandonné !
+                //     $data['TitreDeLaPage'] = 'Modifier un produit';
+                //     $modelProd = new ModeleProduit();
+                //     $produit =  $modelProd->retourner_produits($prod);
+                //     $data['Categorie'] = $produit['NOCATEGORIE'];
+                //     $data['Marque'] = $produit['NOMARQUE'];
+                //     $data['txtLibelle'] = $produit['LIBELLE'];
+                //     $data['txtDetail'] = $produit['DETAIL'];
+                //     $data['txtPrixHT'] = $produit['PRIXHT'];
+                //     $data['txtNomimage'] = $produit['NOMIMAGE'];
+                //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
+                // }
+            }
+            echo view('templates/header', $data);
+            echo view('AdministrateurSuper/lettre_information');
+            echo view('templates/footer');
+        } else {
+            $donneesAInserer = array(
+                'Objet' => $this->request->getPost('objet'),
+                'Titre' => $this->request->getPost('titre'),
+                'Message' => $this->request->getPost('message'),
+            );
+            if ($this->request->getPost('submit')) {
+                $to = implode(",", $ModelAbo->recuperer_mail());
+                mail($to, $donneesAInserer['Objet'], $donneesAInserer['Titre'], $donneesAInserer['Message']);
+            }
+            $ModelNouv->insert($donneesAInserer);
+            return redirect()->to('visiteur/lister_les_produits');
+        }
+    }
 
+    public function supprimer_un_admin($id)
+    {
+        // $validation =  \Config\Services::validation();
+        // $modelCat = new ModeleCategorie();
+        // $data['categories'] = $modelCat->retourner_categories();
+        // $modelMarq = new ModeleMarque();
+        // $data['marques'] = $modelMarq->retourner_marques();
+        $modelAdmin = new ModeleAdministrateur();
+        $modelAdmin->retourner_administrateur_par_id($id);
+        // echo view('templates/header', $data);
+        // echo view('templates/footer');
+        $modelAdmin->delete($id);
+        return redirect()->to('visiteur/lister_les_produits');
+    }
+    public function modifier_un_admin($id, $prod = false)
+    {
+        $validation =  \Config\Services::validation();
+        $modelCat = new ModeleCategorie();
+        $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
+        $modelAdmin = new ModeleAdministrateur();
+        $data['TitreDeLaPage'] = 'Modifier un admin';
+
+        $rules = [ //régles de validation creation
+            'identifiant' => 'required|is_unique[administrateur.identifiant,id,{id}]',
+            'email' => 'required|is_unique[administrateur.email,id,{id}]',
+        ];
+        $data['admin'] = $modelAdmin->retourner_administrateur_par_id($id);
+        if (!$this->validate($rules)) {
+            if ($_POST) {
+                $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
+            } else {
+                if ($prod == false) {
+                    $data['TitreDeLaPage'] = 'Modifier un admin';
+                    //d($data['admin']);
+                }
+                // else { //abandonné !
+                //     $data['TitreDeLaPage'] = 'Modifier un produit';
+                //     $modelProd = new ModeleProduit();
+                //     $produit =  $modelProd->retourner_produits($prod);
+                //     $data['Categorie'] = $produit['NOCATEGORIE'];
+                //     $data['Marque'] = $produit['NOMARQUE'];
+                //     $data['txtLibelle'] = $produit['LIBELLE'];
+                //     $data['txtDetail'] = $produit['DETAIL'];
+                //     $data['txtPrixHT'] = $produit['PRIXHT'];
+                //     $data['txtNomimage'] = $produit['NOMIMAGE'];
+                //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
+                // }
+
+            }
+            echo view('templates/header', $data);
+            echo view('AdministrateurSuper/modifier_un_admin');
+            echo view('templates/footer');
+        } else // si formulaire valide
+        {
+            $donneesAInserer = array(
+                'IDENTIFIANT' => $this->request->getPost('identifiant'),
+                'EMAIL' => $this->request->getPost('email'),
+                //'PROFIL' => $this->insert('Employé'),
+                'MOTDEPASSE' => $this->request->getPost('motdepasse'),
+            );
+            if (empty($donneesAInserer['MOTDEPASSE'])) {
+                unset($donneesAInserer['MOTDEPASSE']);
+            }
+            print_r($donneesAInserer);
+            $modelAdmin->update($id, $donneesAInserer);
+            return redirect()->to('visiteur/lister_les_produits');
+            //else redirecte ??
+        }
+    }
+    public function afficher_les_admins()
+    {
+        $modelAdmin = new ModeleAdministrateur();
+        $data['admins'] = $modelAdmin->retourner_admins();
+        $modelCat = new ModeleCategorie();
+        $data['categories'] = $modelCat->retourner_categories();
+        echo view('templates/header', $data);
+        echo view('AdministrateurSuper/afficher_les_admins');
+        echo view('templates/footer');
+    }
+    public function ajouter_un_admin($prod = false)
+    {
+        $validation =  \Config\Services::validation();
+        $modelCat = new ModeleCategorie();
+        $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
+        $data['TitreDeLaPage'] = 'Ajouter un admin';
+
+        $rules = [ //régles de validation creation
+            'identifiant' => 'required|is_unique[administrateur.identifiant]',
+            'email' => 'required|is_unique[administrateur.email]',
+            'motdepasse' => 'required',
+        ];
+        if (!$this->validate($rules)) {
+            if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
+            else {
+                if ($prod == false) {
+                    $data['TitreDeLaPage'] = 'Ajouter un admin';
+                }
+                // else { //abandonné !
+                //     $data['TitreDeLaPage'] = 'Modifier un produit';
+                //     $modelProd = new ModeleProduit();
+                //     $produit =  $modelProd->retourner_produits($prod);
+                //     $data['Categorie'] = $produit['NOCATEGORIE'];
+                //     $data['Marque'] = $produit['NOMARQUE'];
+                //     $data['txtLibelle'] = $produit['LIBELLE'];
+                //     $data['txtDetail'] = $produit['DETAIL'];
+                //     $data['txtPrixHT'] = $produit['PRIXHT'];
+                //     $data['txtNomimage'] = $produit['NOMIMAGE'];
+                //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
+                // }
+
+            }
+            echo view('templates/header', $data);
+            echo view('AdministrateurSuper/ajouter_un_admin');
+            echo view('templates/footer');
+        } else // si formulaire valide
+        {
+            $donneesAInserer = array(
+                'IDENTIFIANT' => $this->request->getPost('identifiant'),
+                'EMAIL' => $this->request->getPost('email'),
+                // 'PROFIL' => $this->insert('Employé'),
+                'MOTDEPASSE' => $this->request->getPost('motdepasse'),
+            );
+            print_r($donneesAInserer);
+            $modelAdmin = new ModeleAdministrateur();
+            $modelAdmin->insert($donneesAInserer);
+            return redirect()->to('visiteur/lister_les_produits');
+            //else redirecte ??
+        }
+    }
     public function ajouter_une_marque($prod = false)
     {
         $validation =  \Config\Services::validation();
@@ -25,7 +216,7 @@ class AdministrateurSuper extends BaseController
         if (!$this->validate($rules)) {
             if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
             else {
-                if($prod==false) {
+                if ($prod == false) {
                     $data['TitreDeLaPage'] = 'Ajouter une marque';
                 }
                 // else { //abandonné !
@@ -40,7 +231,7 @@ class AdministrateurSuper extends BaseController
                 //     $data['txtNomimage'] = $produit['NOMIMAGE'];
                 //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
                 // }
-                
+
             }
             echo view('templates/header', $data);
             echo view('AdministrateurSuper/ajouter_une_marque');
@@ -72,7 +263,7 @@ class AdministrateurSuper extends BaseController
         if (!$this->validate($rules)) {
             if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
             else {
-                if($prod==false) {
+                if ($prod == false) {
                     $data['TitreDeLaPage'] = 'Ajouter une catégorie';
                 }
                 // else { //abandonné !
@@ -87,7 +278,7 @@ class AdministrateurSuper extends BaseController
                 //     $data['txtNomimage'] = $produit['NOMIMAGE'];
                 //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
                 // }
-                
+
             }
             echo view('templates/header', $data);
             echo view('AdministrateurSuper/ajouter_une_categorie');
@@ -128,9 +319,11 @@ class AdministrateurSuper extends BaseController
             ]
         ];
         if (!$this->validate($rules)) {
-            if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire'; //correction
+            if ($_POST) {
+                $data['TitreDeLaPage'] = 'Corriger votre formulaire';
+            } //correction
             else {
-                if($prod==false) {
+                if ($prod == false) {
                     $data['TitreDeLaPage'] = 'Ajouter un produit';
                 }
                 // else { //abandonné !
@@ -145,7 +338,7 @@ class AdministrateurSuper extends BaseController
                 //     $data['txtNomimage'] = $produit['NOMIMAGE'];
                 //     $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
                 // }
-                
+
             }
             echo view('templates/header', $data);
             echo view('AdministrateurSuper/ajouter_un_produit');
@@ -176,7 +369,7 @@ class AdministrateurSuper extends BaseController
                     print_r($donneesAInserer);
                     $modelProd = new ModeleProduit();
                     $modelProd->save($donneesAInserer);
-                    
+
                     return redirect()->to('visiteur/lister_les_produits');
                 }
             }
@@ -236,7 +429,7 @@ class AdministrateurSuper extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            if($_POST)$data['TitreDeLaPage'] = 'Corriger votre formulaire';
+            if ($_POST) $data['TitreDeLaPage'] = 'Corriger votre formulaire';
             $produit =  $modelProd->retourner_produits($noProduit);
             $data['noProduit'] = $produit['NOPRODUIT'];
             $data['Categorie'] = $produit['NOCATEGORIE'];
@@ -247,7 +440,7 @@ class AdministrateurSuper extends BaseController
             $data['txtNomimage'] = $produit['NOMIMAGE'];
             $data['txtQuantite'] = $produit['QUANTITEENSTOCK'];
             $data['vitrine'] = $produit['VITRINE'];
-            
+
             echo view('templates/header', $data);
             echo view('AdministrateurSuper/modifier_produit');
             echo view('templates/footer');
@@ -266,8 +459,10 @@ class AdministrateurSuper extends BaseController
                 'VITRINE' => 0
             );
 
-            if ($this->request->getPost('checkbox') == 1) {$donneesAInserer['VITRINE']=1;} 
-            
+            if ($this->request->getPost('checkbox') == 1) {
+                $donneesAInserer['VITRINE'] = 1;
+            }
+
             $modelProd->update($noProduit, $donneesAInserer);
 
             return redirect()->to('visiteur/lister_les_produits');

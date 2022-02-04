@@ -8,25 +8,44 @@ use App\Models\ModeleClient;
 use App\Models\ModeleCategorie;
 use App\Models\ModeleMarque;
 use App\Models\ModeleAdministrateur;
+use App\Models\ModeleAbonne;
 //use App\Models\ModeleAdministrateur;
 //$pager = \Config\Services::pager();
-helper(['url', 'assets']);
+helper(['url', 'assets', 'form']);
 class Visiteur extends BaseController
 {
 
-    public function accueil()
+    public function abonne()
     {
-        $modelProd = new ModeleProduit();
-        $data['vitrines'] = $modelProd->retourner_vitrine();
-        $modelCat = new ModeleCategorie();
-        $data['categories'] = $modelCat->retourner_categories();
-        $modelMarq = new ModeleMarque();
-        $data['marques'] = $modelMarq->retourner_marques();
-
-        echo view('templates/header', $data);
-        echo view('visiteur/accueil');
-        echo view('templates/footer');
+        $ModelAbo = new ModeleAbonne();
+        if ($this->request->getPost('submit')) {
+            $email = $this->request->getPost('email');
+            if ($ModelAbo->verification($email) == null) {
+                echo "Déjà abonné";
+            } else {
+                $to = $email;
+                $obj = "Inscription à la Newsletter de ChopesGames";
+                $msg = "Ceci est un message automatique, merci de ne pas répondre. Nous sommes ravis de vous acceuillir dans notre équipe ! Voici le mail de confirmation pour votre inscription sur notre site. Vous pouvez nous signaler votre retrait en nous envoyant un mail intitulé 'Droit à l'oublie'. Pour ces demandes, un délai de 30 jours nous est accordé pour faire le nécessaire, un mail de confirmation vous sera envoyer manuellement.
+                L'équipe de ChopesGames vous souhaite une bonne journée !";
+                mail($to,$obj,$msg);
+            }
+            //dd($ModelAbo->verification($email));
+        }
+        return redirect()->to('visiteur/lister_les_produits');
     }
+    // public function accueil()
+    // {
+    //     $modelProd = new ModeleProduit();
+    //     $data['vitrines'] = $modelProd->retourner_vitrine();
+    //     $modelCat = new ModeleCategorie();
+    //     $data['categories'] = $modelCat->retourner_categories();
+    //     $modelMarq = new ModeleMarque();
+    //     $data['marques'] = $modelMarq->retourner_marques();
+
+    //     echo view('templates/header', $data);
+    //     echo view('visiteur/accueil');
+    //     echo view('templates/footer');
+    // }
 
 
     public function lister_les_produits()
@@ -276,7 +295,6 @@ class Visiteur extends BaseController
                 }
             }
         } else {  // envoi d'une modification de compte (email et mdp aussi ? A VOIR...) ou enregistrement
-
             $compte = [
                 'NOM' => $this->request->getPost('txtNom'),
                 'PRENOM' => $this->request->getPost('txtPrenom'),
@@ -347,7 +365,7 @@ class Visiteur extends BaseController
                     }
                     $session->set('id', $UtilisateurRetourne["NOCLIENT"]);
                     $session->set('statut', 1);
-                    return redirect()->to('Visiteur/accueil');
+                    return redirect()->to('Visiteur/lister_les_produits');
                 } else {
                     $data['TitreDeLaPage'] = 'Mot de passe incorrect';
                     echo view('visiteur/se_connecter', $data);
@@ -408,7 +426,7 @@ class Visiteur extends BaseController
                     } elseif ($adminRetourne["PROFIL"] == 'Super') {
                         $session->set('statut', 3);
                     }
-                    return redirect()->to('Visiteur/accueil');
+                    return redirect()->to('Visiteur/lister_les_produits');
                 } else {
                     $data['TitreDeLaPage'] = 'Mot de passe incorrect';
                     echo view('visiteur/connexion_administrateur', $data);

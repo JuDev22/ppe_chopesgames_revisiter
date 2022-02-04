@@ -11,8 +11,8 @@
                      </tr>
                  </thead>
                  <?php
-                    foreach ($clients as $client) { 
-                        $id =$client['NOCLIENT']; ?>
+                    foreach ($clients as $client) {
+                        $id = $client['NOCLIENT']; ?>
                      <tr onclick="window.location.href = '<?php echo site_url('AdministrateurEmploye/historique_des_commandes/' . $id) ?>'" class="hover">
                          <td><?php echo $id; ?> </td>
                          <td> <?php echo $client['NOM'];
