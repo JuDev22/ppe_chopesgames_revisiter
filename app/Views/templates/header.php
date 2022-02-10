@@ -17,7 +17,7 @@ if ($session->has('cart')) {
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
     <div class="container-fluid justify-content-start">
-        <a class="navbar-brand" href="<?php echo site_url('Visiteur/accueil') ?>">
+        <a class="navbar-brand" href="<?php echo site_url('Visiteur/lister_les_produits') ?>">
             <img class="d-block" style="width:30px;height:30px;'" src="<?= base_url() . '/assets/images/mario-bros.png' ?>" alt="ChopesGames">
         </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,13 +35,8 @@ if ($session->has('cart')) {
                         <ul class="list-unstyled mb-0">
                             <?php foreach ($categories as $categorie) { ?>
                                 <li class="dropdown-item d-flex align-items-center gap-2 py-2">
-                                <?php foreach($lesProduits as $unProduit)
-                                { if ($unProduit['DISPONIBLE'] == 0) { ?> 
-                                <?= '<span class="d-inline-block bg-danger rounded-circle flex-row" style="width: .5em; height: .5em;"></span>' ?>
-                                <?php } else echo '<span class="d-inline-block bg-success rounded-circle flex-row" style="width: .5em; height: .5em;"></span>'?>
                                     <?= anchor('Visiteur/lister_les_produits_par_categorie/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]); ?>
                                 </li>
-                            <?php } ?>
                             <?php } ?>
                         </ul>
                     </div>
@@ -103,12 +98,5 @@ if ($session->has('cart')) {
             </div>
         <?php endif; ?>
         </ul>
-    </div>
-    <?php if (empty($session->get('statut'))) : ?>
-        <li class="nav-item droite">
-            <a href="<?php echo site_url('Visiteur/connexion_administrateur') ?>" class="fas fa-lock"></a>
-        </li>
-    <?php endif; ?>
-    </ul>
     </div>
 </nav>
