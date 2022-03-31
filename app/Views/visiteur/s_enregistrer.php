@@ -27,25 +27,25 @@
                         </div> -->
                     <!-- </div> -->
                     <label for="txtNom" class="text-primary">Nom</label>
-                    <input class="form-control" type="input" name="txtNom" value="<?php echo set_value('txtNom', $txtNom); ?>" />
+                    <input class="form-control" type="input" name="txtNom" value="<?php echo strip_tags(set_value('txtNom', $txtNom)); ?>" />
 
                     <label for="txtPrenom" class="text-primary">Prénom</label><br>
-                    <input class="form-control" type="input" name="txtPrenom" value="<?php echo set_value('txtPrenom', $txtPrenom); ?>" />
+                    <input class="form-control" type="input" name="txtPrenom" value="<?php echo strip_tags(set_value('txtPrenom', $txtPrenom)); ?>" />
 
                     <label for="txtAdresse" class="text-primary">Adresse</label><br>
-                    <input class="form-control" type="input" name="txtAdresse" value="<?php echo set_value('txtAdresse', $txtAdresse); ?>" />
+                    <input class="form-control" type="input" name="txtAdresse" value="<?php echo strip_tags(set_value('txtAdresse', $txtAdresse)); ?>" />
 
                     <label for="txtVille" class="text-primary">Ville</label><br>
-                    <input class="form-control" type="input" name="txtVille" value="<?php echo set_value('txtVille', $txtVille); ?>" />
+                    <input class="form-control" type="input" name="txtVille" value="<?php echo strip_tags(set_value('txtVille', $txtVille)); ?>" />
 
                     <label for="txtCP" class="text-primary">Code Postal</label><br>
-                    <input class="form-control" type="input" name="txtCP" value="<?php echo set_value('txtCP', $txtCP); ?>" />
+                    <input class="form-control" type="input" name="txtCP" value="<?php echo strip_tags(set_value('txtCP', $txtCP)); ?>" />
 
                     <label for="txtEmail" class="text-primary">Email</label><br>
-                    <input class="form-control" type="input" name="txtEmail" value="<?php echo set_value('txtEmail', $txtEmail); ?>" />
+                    <input class="form-control" type="input" name="txtEmail" value="<?php echo strip_tags(set_value('txtEmail', $txtEmail)); ?>" />
 
                     <label for="txtMdp" class="text-primary">Mot de passe</label><br>
-                    <input class="form-control" type="password" name="txtMdp" id="mdp" value="<?php echo set_value('txtMdp'); ?>" />
+                    <input class="form-control" type="password" name="txtMdp" id="mdp" value="<?php echo strip_tags(set_value('txtMdp')); ?>" />
 
 
                     <input type="submit" name="submit" class="btn btn-primary btn-md" value="Valider">

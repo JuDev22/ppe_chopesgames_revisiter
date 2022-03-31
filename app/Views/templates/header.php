@@ -17,14 +17,14 @@ if ($session->has('cart')) {
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
     <div class="container-fluid justify-content-start">
-        <a class="navbar-brand" href="<?php echo site_url('Visiteur/lister_les_produits') ?>">
+        <a class="navbar-brand" href="<?php echo site_url('') ?>">
             <img class="d-block" style="width:30px;height:30px;'" src="<?= base_url() . '/assets/images/mario-bros.png' ?>" alt="ChopesGames">
         </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="navbar-nav px-0 mb-1 mb-md-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="<?= site_url('Visiteur/lister_les_produits') ?>">Nos produits</a>
+                <a class="nav-link active" aria-current="page" href="<?= site_url('') ?>">Nos produits</a>
             </li>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <li class="nav-item dropdown me-3">
@@ -35,7 +35,7 @@ if ($session->has('cart')) {
                         <ul class="list-unstyled mb-0">
                             <?php foreach ($categories as $categorie) { ?>
                                 <li class="dropdown-item d-flex align-items-center gap-2 py-2">
-                                    <?= anchor('Visiteur/lister_les_produits_par_categorie/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]); ?>
+                                    <?= anchor('/produit/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]); ?>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -43,7 +43,7 @@ if ($session->has('cart')) {
                 </li>
             </div>
         </ul>
-        <form class="d-flex" method="post" action="<?php echo site_url('Visiteur/lister_les_produits') ?>">
+        <form class="d-flex" method="post" action="<?php echo site_url('') ?>">
             <input class="form-control mx-1 sm" type="text" name="search" id="search" placeholder="Rechercher...">
             <button class="btn btn-success mx-1 btn-sm" type="submit">
                 <i class="fas fa-search"></i>
@@ -54,7 +54,7 @@ if ($session->has('cart')) {
         <ul class="navbar-nav">
             <?php if ($nb > 0) { ?>
                 <li class="nav-item">
-                    <a href="<?php echo site_url('Visiteur/afficher_panier') ?>" class="text-primary ft">
+                    <a href="<?php echo site_url('/panier') ?>" class="text-primary ft">
                         <span class="fas fa-shopping-bag"><?php if ($nb > 0) echo "($nb)" ?></span>
                     </a>
                 </li>
@@ -77,7 +77,7 @@ if ($session->has('cart')) {
                         <hr class="dropdown-diviser">
                         </hr>
                     <?php } else { ?>
-                        <li><a class="dropdown-item" href="<?php echo site_url('Visiteur/se_connecter') ?>">Se connecter</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('/connexion') ?>">Se connecter</a></li>
                         <li><a class="dropdown-item" href="<?php echo site_url('Visiteur/s_enregistrer') ?>">S'inscrire</a></li>
                     <?php } ?>
                     <?php if ($session->get('statut') == 2 or $session->get('statut') == 3) : ?>
