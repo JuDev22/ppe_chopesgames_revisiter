@@ -1,0 +1,30 @@
+CRITICAL - 2022-04-18 04:24:27 --> Invalid file: /connexion.php
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/connexion.php')
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('/connexion', Array, true)
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\Visiteur.php(352): view('/connexion', Array)
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#8 {main}
+CRITICAL - 2022-04-18 04:26:47 --> Invalid file: /connexion.php
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/connexion.php')
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('/connexion', Array, true)
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\Visiteur.php(352): view('/connexion', Array)
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#8 {main}
+CRITICAL - 2022-04-18 04:28:03 --> Invalid file: /connexion.php
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/connexion.php')
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('/connexion', Array, true)
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\Visiteur.php(352): view('/connexion', Array)
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#8 {main}

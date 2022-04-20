@@ -13,20 +13,21 @@ if ($session->has('cart')) {
     <link rel="alternate" type="application/rss+XML" title="ChopesGames" href="<?php echo site_url('AdministrateurSuper/flux_rss') ?>" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= css_url('style') ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-    <div class="container-fluid justify-content-start">
-        <a class="navbar-brand" href="<?php echo site_url('') ?>">
+    <div class="container d-flex justify-content-start" style="width: auto!important">
+        <a class="navbar-brand" href="<?php echo site_url('Visiteur/lister_les_produits') ?>">
             <img class="d-block" style="width:30px;height:30px;'" src="<?= base_url() . '/assets/images/mario-bros.png' ?>" alt="ChopesGames">
         </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="navbar-nav px-0 mb-1 mb-md-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="<?= site_url('') ?>">Nos produits</a>
-            </li>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= site_url('Visiteur/lister_les_produits') ?>">Nos produits</a>
+                </li>
                 <li class="nav-item dropdown me-3">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         Nos catégories
@@ -35,23 +36,38 @@ if ($session->has('cart')) {
                         <ul class="list-unstyled mb-0">
                             <?php foreach ($categories as $categorie) { ?>
                                 <li class="dropdown-item d-flex align-items-center gap-2 py-2">
-                                    <?= anchor('/produit/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]); ?>
+                                    <?= anchor('Visiteur/lister_les_produits_par_categorie/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]); ?>
                                 </li>
                             <?php } ?>
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nos marques
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px">
+                        <ul class="list-unstyled mb-0">
+                            <?php foreach ($marques as $marque) { ?>
+                                <li class="dropdown-item d-flex align-items-center gap-2 py-2">
+                                    <?= anchor('Visiteur/lister_les_produits_parmarque/' . $marque["NOMARQUE"], $marque["NOM"]); ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </li>
+
+                <form class="d-flex" method="post" action="<?php echo site_url('') ?>">
+                    <input class="form-control mx-1 sm" type="text" name="search" id="search" placeholder="Rechercher...">
+                    <button class="btn btn-success mx-1 btn-sm" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
         </ul>
-        <form class="d-flex" method="post" action="<?php echo site_url('') ?>">
-            <input class="form-control mx-1 sm" type="text" name="search" id="search" placeholder="Rechercher...">
-            <button class="btn btn-success mx-1 btn-sm" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
     </div>
-    <div class="navbar-collapse justify-content-end collapse">
-        <ul class="navbar-nav">
+    <div class="container d-flex flex-row justify-content-end" style="width: auto!important">
+        <ul class="navbar-nav" style="flex-direction: row!important;">
             <?php if ($nb > 0) { ?>
                 <li class="nav-item">
                     <a href="<?php echo site_url('/panier') ?>" class="text-primary ft">
@@ -59,10 +75,20 @@ if ($session->has('cart')) {
                     </a>
                 </li>
             <?php } ?>
+            <?php if ($session->get('statut') == 2) { ?>
+                <div class="bg-danger rounded-pill div-admin">
+                    <p class="admin">Administrateur</p>
+                </div>
+                <?php } ?>
+            <?php if ($session->get('statut') == 3) { ?>
+                <div class="bg-danger rounded-pill div-admin">
+                    <p class="admin">SuperAdministrateur</p>
+                </div>
+                <?php } ?>
             <div class="flex-shrink-0 dropdown dropstart">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php if (is_null($session->get('statut'))) { ?>
-                        <img src="<?= img_url('user.jpg') ?> " width="32" height="32"> <?php } else { ?>
+                        <i class="bi bi-person" style="color: white; height: 16px; width: 16px;"></i> <?php } else { ?>
                         <!-- Chercher l'image de l'utilisateur | Image user par default  -->
                         <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
                     <?php } ?>
@@ -77,7 +103,7 @@ if ($session->has('cart')) {
                         <hr class="dropdown-diviser">
                         </hr>
                     <?php } else { ?>
-                        <li><a class="dropdown-item" href="<?php echo site_url('/connexion') ?>">Se connecter</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('Visiteur/se_connecter') ?>">Se connecter</a></li>
                         <li><a class="dropdown-item" href="<?php echo site_url('Visiteur/s_enregistrer') ?>">S'inscrire</a></li>
                     <?php } ?>
                     <?php if ($session->get('statut') == 2 or $session->get('statut') == 3) : ?>

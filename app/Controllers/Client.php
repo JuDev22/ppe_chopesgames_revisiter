@@ -31,7 +31,7 @@ class client extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('Visiteur/lister_les_produits');
+        return redirect()->to('visiteur/lister_les_produits');
     }
     function validation_commande()
     {

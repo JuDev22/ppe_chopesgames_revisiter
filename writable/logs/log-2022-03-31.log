@@ -1,0 +1,24 @@
+CRITICAL - 2022-03-31 06:29:51 --> Undefined variable: TitreDeLaPage
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Views\visiteur\lister_les_produits.php(2): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\BTS SI...', 2, Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(214): include('C:\\Users\\BTS SI...')
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('visiteur/lister...', Array, true)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\Visiteur.php(46): view('visiteur/lister...')
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\Visiteur->accueil()
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#10 {main}
+CRITICAL - 2022-03-31 06:30:39 --> Undefined variable: lesProduits
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Views\visiteur\lister_les_produits.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\BTS SI...', 9, Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(214): include('C:\\Users\\BTS SI...')
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('visiteur/lister...', Array, true)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\Visiteur.php(47): view('visiteur/lister...')
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\Visiteur->accueil()
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#10 {main}

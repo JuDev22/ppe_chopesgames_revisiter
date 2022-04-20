@@ -27,7 +27,7 @@ class Visiteur extends BaseController
                 $obj = "Inscription à la Newsletter de ChopesGames";
                 $msg = "Ceci est un message automatique, merci de ne pas répondre. Nous sommes ravis de vous acceuillir dans notre équipe ! Voici le mail de confirmation pour votre inscription sur notre site. Vous pouvez nous signaler votre retrait en nous envoyant un mail intitulé 'Droit à l'oublie'. Pour ces demandes, un délai de 30 jours nous est accordé pour faire le nécessaire, un mail de confirmation vous sera envoyer manuellement.
                 L'équipe de ChopesGames vous souhaite une bonne journée !";
-                mail($to,$obj,$msg);
+                mail($to, $obj, $msg);
             }
             //dd($ModelAbo->verification($email));
         }
@@ -37,13 +37,14 @@ class Visiteur extends BaseController
     // {
     //     $modelProd = new ModeleProduit();
     //     $data['vitrines'] = $modelProd->retourner_vitrine();
+    //     $data['TitreDeLaPage'] = 'Nos produits';
     //     $modelCat = new ModeleCategorie();
     //     $data['categories'] = $modelCat->retourner_categories();
     //     $modelMarq = new ModeleMarque();
     //     $data['marques'] = $modelMarq->retourner_marques();
 
     //     echo view('templates/header', $data);
-    //     echo view('visiteur/accueil');
+    //     echo view('visiteur/lister_les_produits');
     //     echo view('templates/footer');
     // }
 
@@ -80,7 +81,7 @@ class Visiteur extends BaseController
             $pager = \Config\Services::pager();
             $modelMarq = new ModeleMarque();
             $marque = $modelMarq->retourner_marques($nomarque);
-
+            $data['marques'] = $modelMarq->retourner_marques();
             $data['lamarque'] = $marque["NOM"];
             $data['TitreDeLaPage'] = $marque["NOM"];
             $modelCat = new ModeleCategorie();
@@ -274,6 +275,8 @@ class Visiteur extends BaseController
         ];
         $modelCat = new ModeleCategorie();
         $data_bis['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data_bis['marques'] = $modelMarq->retourner_marques();
         echo view('templates/header', $data_bis);
         $modelCli = new ModeleClient();
 
@@ -323,13 +326,13 @@ class Visiteur extends BaseController
     {
         helper(['form']);
         $validation =  \Config\Services::validation();
-        $session = session();
+        $session = session();            
         $data['TitreDeLaPage'] = 'Se connecter';
         $rules = [ //régles de validation
             'txtEmail' => 'required|valid_email|is_not_unique[client.EMAIL,id,{id}]',
             'txtMdp'   => 'required|is_not_unique[client.MOTDEPASSE,id,{id}]'
         ];
-
+        
         $messages = [ //message à renvoyer en cas de non respect des règles de validation
             'txtEmail' => [
                 'required' => 'Un Email est requis',
@@ -339,8 +342,10 @@ class Visiteur extends BaseController
             'txtMdp'    => [
                 'required' => 'Un mot de passe est requis',
                 'is_not_unique' => 'Mot de passe incorrect',
-            ]
-        ];
+                ]
+            ];
+        $modelMarq = new ModeleMarque();
+        $data_bis['marques'] = $modelMarq->retourner_marques();
         $modelCat = new ModeleCategorie();
         $data_bis['categories'] = $modelCat->retourner_categories();
         echo view('templates/header', $data_bis);
@@ -365,7 +370,7 @@ class Visiteur extends BaseController
                     }
                     $session->set('id', $UtilisateurRetourne["NOCLIENT"]);
                     $session->set('statut', 1);
-                    return redirect()->to('Visiteur/lister_les_produits');
+                    return redirect()->to('visiteur/lister_les_produits');
                 } else {
                     $data['TitreDeLaPage'] = 'Mot de passe incorrect';
                     echo view('visiteur/se_connecter', $data);

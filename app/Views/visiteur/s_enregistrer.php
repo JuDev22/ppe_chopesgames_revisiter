@@ -3,9 +3,6 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
                 <div class="col-md-12 container">
-                    <?= form_open('client/droit_a_loubli') ?>
-                    <input type="submit" name="submit" class="btn bg-warning" value="Droit à l'oubli">
-                    <?= form_close() ?>
                     <?php echo form_open('Visiteur/s_enregistrer') ?>
                     <br>
                     <h3 class="text-center text-primary"><?php echo $TitreDeLaPage ?></h3>
@@ -46,12 +43,20 @@
 
                     <label for="txtMdp" class="text-primary">Mot de passe</label><br>
                     <input class="form-control" type="password" name="txtMdp" id="mdp" value="<?php echo strip_tags(set_value('txtMdp')); ?>" />
-
-
-                    <input type="submit" name="submit" class="btn btn-primary btn-md" value="Valider">
-                    <div class="text-primary right">
-                        <a class="btn btn-primary" href="<?php echo site_url('Visiteur/se_connecter') ?>">Se connecter</a>
+                    <?php $session = session();
+                    if ($session->get('statut') == 1) { ?>
+                    <?= form_open('client/droit_a_loubli') ?>
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" name="submit" class="btn bg-warning m-1" value="Droit à l'oubli">
+                        <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Modifier les coordonnées">
                     </div>
+                    <?= form_close() ?>
+                    <?php } else { ?>
+                    <div class="d-flex justify-content-center">
+                        <a href="<?= site_url('Visiteur/se_connecter')?>" class="btn btn-primary m-1">Se connecter</a>
+                        <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Crée mon compte">
+                    </div>
+                    <?php } ?>
                     </form>
                 </div>
             </div>

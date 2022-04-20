@@ -17,8 +17,6 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Visiteur');
-$routes->setDefaultMethod('lister_les_produits');
 $routes->setTranslateURIDashes(true);
 $routes->setAutoRoute(true);
 // Would execute the show404 method of the App\Errors class
@@ -39,10 +37,6 @@ $routes->set404Override(function( $message = null )
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->add('/', 'Visiteur::lister_les_produits');
-$routes->add('/produit/(:num)', 'Visiteur::lister_les_produits_par_categorie/$1');
-$routes->add('/panier', 'Visiteur::afficher_panier/$1');
-$routes->get('/connexion', 'Visiteur::se_connecter');
 
 /*
  * --------------------------------------------------------------------

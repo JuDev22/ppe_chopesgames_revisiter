@@ -5,6 +5,7 @@ use App\Models\ModeleClient;
 use App\Models\ModeleCategorie;
 use App\Models\Modele_commande;
 use App\Models\ModeleLigne;
+use App\Models\ModeleMarque;
 use App\Models\ModeleAbonne;
 
 helper(['url', 'assets', 'form']);
@@ -18,6 +19,9 @@ class AdministrateurEmploye extends BaseController
         $data['categories'] = $modelCat->retourner_categories();
         $ModelCom = new Modele_commande();
         $data['commandes'] = $ModelCom->retourner_non_traite();
+        // dd($data['commandes']);
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         $data['clientCommande'] = $ModelCom->retourner_commande($noCommande);
         //dd($data['commandes']);
         echo view('templates/header', $data);
@@ -30,6 +34,8 @@ class AdministrateurEmploye extends BaseController
         $data['clients'] = $modelCli->retourner_clients();
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         $ModelCom = new Modele_commande();
         $data['commandes'] = $ModelCom->retourner_commandes();
         echo view('templates/header', $data);
@@ -44,6 +50,8 @@ class AdministrateurEmploye extends BaseController
         // }
         $modelCli = new ModeleClient();
         $data['client'] = $modelCli->retourner_client_par_no($noclient);
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         $modelComm = new Modele_commande();
         $data['commandes'] = $modelComm->retourner_commandes_client($noclient);
         $modelCat = new ModeleCategorie();
@@ -64,6 +72,8 @@ class AdministrateurEmploye extends BaseController
         $data['lignes'] = $modelLig->retourner_lignes($noCommande);
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/details_commande');
         echo view('templates/footer');
@@ -79,6 +89,8 @@ class AdministrateurEmploye extends BaseController
         $data['lignes'] = $modelLig->retourner_lignes($noCommande);
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/details_commande_non_traitee');
         echo view('templates/footer');

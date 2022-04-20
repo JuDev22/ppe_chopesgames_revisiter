@@ -14,9 +14,7 @@
                 <?php
                 foreach ($clients as $client) {
                     $id = $client['NOCLIENT']; ?>
-                    <?php foreach ($commandes as $commande) { 
-                        //dd($commande);
-                        //$noCommande = $commande['NOCOMMANDE']; ?>
+                    <?php foreach ($commandes as $commande) { if ($commande['DATETRAITEMENT'] == null) { ?>
                         <tr onclick="window.location.href = '<?php echo site_url('AdministrateurEmploye/details_commande_non_traitee/' .$commande['NOCOMMANDE']); ?>'" class="hover">
                         <?php } ?>
                         <td>
@@ -36,6 +34,7 @@
                             } ?></td>
                         </tr>
                     <?php } ?>
+                <?php } ?>
             </table>
         </div>
     </div>
