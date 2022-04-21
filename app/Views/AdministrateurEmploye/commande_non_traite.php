@@ -12,28 +12,18 @@
                     </tr>
                 </thead>
                 <?php
-                foreach ($clients as $client) {
-                    $id = $client['NOCLIENT']; ?>
-                    <?php foreach ($commandes as $commande) { if ($commande['DATETRAITEMENT'] == null) { ?>
-                        <tr onclick="window.location.href = '<?php echo site_url('AdministrateurEmploye/details_commande_non_traitee/' .$commande['NOCOMMANDE']); ?>'" class="hover">
-                        <?php } ?>
+                foreach ($commandesNonTraitees as $CommandeNonTraitee) { ?>
+                    <tr onclick="window.location.href = '<?php echo site_url('AdministrateurEmploye/details_commande_non_traitee/' .$CommandeNonTraitee['NOCOMMANDE']); ?>'" class="hover">
+                        <td> 
+                            <?= $CommandeNonTraitee['DATECOMMANDE'] ?>
+                        </td>
+                        <td> 
+                            <?= $CommandeNonTraitee['NOM'] . ' ' . $CommandeNonTraitee['PRENOM'] ?> 
+                        </td>
                         <td>
-                            <?php foreach ($commandes as $commande) {
-                                $id_clientCommande = $commande['NOCLIENT'];
-                                if ($id == $id_clientCommande) {
-                                    echo $commande['DATECOMMANDE'];
-                                }
-                            } ?> </td>
-                        <td> <?php echo $client['NOM'];
-                                echo ' ' . $client['PRENOM']; ?> </td>
-                        <td><?php foreach ($commandes as $commande) {
-                                $id_clientCommande = $commande['NOCLIENT'];
-                                if ($id == $id_clientCommande) {
-                                    echo $commande['TOTALTTC'] . "€";
-                                }
-                            } ?></td>
-                        </tr>
-                    <?php } ?>
+                            <?= $CommandeNonTraitee['TOTALTTC'] . "€"; ?>
+                        </td>
+                    </tr>
                 <?php } ?>
             </table>
         </div>

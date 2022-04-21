@@ -13,9 +13,11 @@ class Modele_commande extends Model
    {
       return $this->select('*')->where('DATETRAITEMENT', null)->findAll();
    }
-   public function retourner_commandes()
+   public function retourner_commande_client()
    {
-      return $this->findAll();
+      return $this->where(['DATETRAITEMENT' => null])
+      ->join('client', 'client.NOCLIENT = commande.noclient')
+      ->findAll();
    }
    public function inserer_date($Tdate, $noCommande)
    {

@@ -13,17 +13,16 @@ helper(['url', 'assets', 'form']);
 class AdministrateurEmploye extends BaseController
 {
     public function commande_non_traite($noCommande = false){
-        $modelCli = new ModeleClient();
-        $data['clients'] = $modelCli->retourner_clients();
+        // $modelCli = new ModeleClient();
+        // $data['clients'] = $modelCli->retourner_clients();
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
         $ModelCom = new Modele_commande();
-        $data['commandes'] = $ModelCom->retourner_non_traite();
-        // dd($data['commandes']);
+        $data['commandesNonTraitees'] = $ModelCom->retourner_commande_client();
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
-        $data['clientCommande'] = $ModelCom->retourner_commande($noCommande);
-        //dd($data['commandes']);
+        
+        // $data['clientCommande'] = $ModelCom->retourner_commande($noCommande);
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/commande_non_traite');
         echo view('templates/footer');
