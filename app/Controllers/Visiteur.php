@@ -33,20 +33,20 @@ class Visiteur extends BaseController
         }
         return redirect()->to('visiteur/lister_les_produits');
     }
-    // public function accueil()
-    // {
-    //     $modelProd = new ModeleProduit();
-    //     $data['vitrines'] = $modelProd->retourner_vitrine();
-    //     $data['TitreDeLaPage'] = 'Nos produits';
-    //     $modelCat = new ModeleCategorie();
-    //     $data['categories'] = $modelCat->retourner_categories();
-    //     $modelMarq = new ModeleMarque();
-    //     $data['marques'] = $modelMarq->retourner_marques();
+    public function accueil()
+    {
+        $modelProd = new ModeleProduit();
+        $data['vitrines'] = $modelProd->retourner_vitrine();
+        $data['TitreDeLaPage'] = 'Accueil';
+        $modelCat = new ModeleCategorie();
+        $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
 
-    //     echo view('templates/header', $data);
-    //     echo view('visiteur/lister_les_produits');
-    //     echo view('templates/footer');
-    // }
+        echo view('templates/header', $data);
+        echo view('visiteur/accueil');
+        echo view('templates/footer');
+    }
 
 
     public function lister_les_produits()
@@ -68,7 +68,7 @@ class Visiteur extends BaseController
         $data['marques'] = $modelMarq->retourner_marques();
 
         echo view('templates/header', $data);
-        echo view("visiteur/lister_les_produits");
+        echo view("Visiteur/lister_les_produits");
         echo view('templates/footer');
     }
 
@@ -111,6 +111,8 @@ class Visiteur extends BaseController
             $data['TitreDeLaPage'] = $categorie["LIBELLE"];
             $modelProd = new ModeleProduit();
             $data["lesProduits"] = $modelProd->retouner_produits_categorie($nocategorie)->paginate(12);
+            $modelMarq = new ModeleMarque();
+            $data['marques'] = $modelMarq->retourner_marques();
             $data['pager'] = $modelProd->pager;
 
             echo view('templates/header', $data);
@@ -139,6 +141,7 @@ class Visiteur extends BaseController
 
         $modelMarq = new ModeleMarque();
         $data['marque'] = $modelMarq->retourner_marques($marque);
+        $data['marques'] = $modelMarq->retourner_marques();
 
         echo view('templates/header', $data);
         echo view('visiteur/voir_un_produit');
@@ -191,6 +194,8 @@ class Visiteur extends BaseController
         helper(['form']);
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         if ($session->has('cart'))
             $data['items'] = array_values(session('cart'));
         else $data['items'] = array();

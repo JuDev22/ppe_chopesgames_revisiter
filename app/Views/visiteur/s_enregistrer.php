@@ -4,6 +4,7 @@
             <div class="col-md-6">
                 <div class="col-md-12 container">
                     <?php echo form_open('Visiteur/s_enregistrer') ?>
+                    <div class="form-con my-5">
                     <br>
                     <h3 class="text-center text-primary"><?php echo $TitreDeLaPage ?></h3>
                     <?PHP if ($TitreDeLaPage == 'Corriger votre formulaire') echo service('validation')->listErrors();
@@ -51,8 +52,9 @@
                         <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Modifier les coordonnées">
                     </div>
                     <?= form_close() ?>
+                    </div>
                     <?php } else { ?>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center p-3">
                         <a href="<?= site_url('Visiteur/se_connecter')?>" class="btn btn-primary m-1">Se connecter</a>
                         <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Crée mon compte">
                     </div>

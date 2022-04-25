@@ -1,5 +1,9 @@
 body{
   height: 100vh;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 /* navbar */
 .navbar-nav > li
@@ -14,9 +18,9 @@ body{
     float: right;
   }
 /* accueil*/
-.marque {background-color: whitesmoke;border-left-style: solid;border-color: lightgrey;min-height: 100vh;text-align:center;}
+.marque {background-color: #dee2e6;border-left-style: solid;border-color: #dee2e6;text-align:center;}
 /* lister les produits */
-.categorie {background-color: whitesmoke;border-right-style: solid;border-color: lightgrey;min-height: 100vh;text-align:center;}
+.categorie {background-color: #dee2e6;border-right-style: solid;border-color: #dee2e6;text-align:center;}
 /*.picture{width:255px;height:354px;background-color: white;
  display: flex; justify-content:center;align-items:center;}*/
 .image{width: 100%;height: auto;max-width: 255px;max-height:354px ;}
@@ -112,7 +116,7 @@ main {min-height: 100vh;}
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: black;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -219,4 +223,79 @@ body > nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-bottom > div h4 {
   color: white;
   font-size: 12px;
   margin: 5px;
+}
+.marque, .categorie{
+  padding: 10px;
+}
+.txt-marque a, .txt-cat a{
+  text-decoration: none;
+  color: black;
+}
+.txt-marque a:hover, .txt-cat a:hover{
+  text-decoration: none;
+  color: #6f42c1;
+}
+.txt-footer{
+  text-align: center;
+}
+.i-foot{
+  color: #6f42c1;
+}
+.i-fb{
+  color: #3b5998;
+}
+.i-tw{
+color: #00acce;
+}
+.i-in{
+color: #833AB4 ;
+}
+.marque, .categorie{
+  height: 377px;
+  overflow-y: scroll;
+  scrollbar-color: #6f42c1 #dee2e6;
+  scrollbar-width: thin;
+}
+.color{
+  color: #6f42c1;
+}
+.product-content{
+  color: #6f42c1;
+}
+.text-primary{
+  color: #6f42c1!important;
+}
+.btn-primary{
+  background-color: #6f42c1!important;
+  border-color: #6f42c1!important;
+}
+.product-grid .add-to-cart{
+  background: #6f42c1!important;
+}
+.product-grid .price{
+  color: #6f42c1!important;
+}
+.product-grid .title a:hover{
+  color: #6f42c1!important;
+
+}
+.pagination a, .pagination span {
+  color: black;
+}
+.pagination a:hover, .pagination span:hover {
+  color: #6f42c1!important;
+}
+.bloc-lister{
+  background: #dee2e6;
+  border-radius: 50px;
+  padding-top: 50px
+}
+.accueil{
+  background: #dee2e6;
+  border-radius: 100px;
+}
+.form-con{
+  background: #dee2e6;
+  padding: 50px;
+  border-radius: 50px;
 }

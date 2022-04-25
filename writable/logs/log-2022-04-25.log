@@ -1,0 +1,40 @@
+CRITICAL - 2022-04-25 03:37:09 --> Call to undefined method App\Models\Modele_commande::retourner_commandes
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\AdministrateurEmploye.php(39): CodeIgniter\Model->__call('retourner_comma...', Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->afficher_les_clients()
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#6 {main}
+CRITICAL - 2022-04-25 03:40:26 --> Undefined variable: marques
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Views\templates\header.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\BTS SI...', 52, Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(214): include('C:\\Users\\BTS SI...')
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\AdministrateurSuper.php(53): view('templates/heade...', Array)
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->lettre_information()
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#10 {main}
+CRITICAL - 2022-04-25 03:40:38 --> Undefined variable: marques
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Views\templates\header.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\BTS SI...', 52, Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(214): include('C:\\Users\\BTS SI...')
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\AdministrateurSuper.php(488): view('templates/heade...', Array)
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->modifier_identifiants_bancaires_site()
+#6 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#10 {main}
+CRITICAL - 2022-04-25 03:40:53 --> Call to undefined method App\Models\Modele_commande::retourner_commandes
+#0 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\app\Controllers\AdministrateurEmploye.php(39): CodeIgniter\Model->__call('retourner_comma...', Array)
+#1 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->afficher_les_clients()
+#2 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#3 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\BTS SIO\Documents\Projet\ppe_chopesgames_revisiter\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\BTS SI...')
+#6 {main}

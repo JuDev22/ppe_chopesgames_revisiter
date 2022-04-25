@@ -24,16 +24,16 @@ if ($session->has('cart')) {
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="<?php echo site_url('Visiteur/accueil') ?>" class="nav-link px-2 text-light">Accueil</a>
+                    <a href="<?php echo site_url('Visiteur/accueil') ?>" class="nav-link px-2 text-primary">Accueil</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('Visiteur/lister_les_produits') ?>" class="nav-link px-2 text-light">Nos produits</a>
+                    <a href="<?php echo site_url('Visiteur/lister_les_produits') ?>" class="nav-link px-2 text-primary">Nos produits</a>
                 </li>
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-primary px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         Nos catégories
                     </a>
-                    <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px">
+                    <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden over" style="width: 280px">
                         <ul class="list-unstyled mb-0">
                             <?php foreach ($categories as $categorie) { ?>
                                 <li class="dropdown-item d-flex align-items-center gap-2 py-2">
@@ -43,8 +43,8 @@ if ($session->has('cart')) {
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown me-3">
-                    <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-primary px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         Nos marques
                     </a>
                     <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px">
@@ -58,17 +58,26 @@ if ($session->has('cart')) {
                     </div>
                 </li>
             </ul>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" data-dashlane-rid="cab92dab677c442a" data-form-type="">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" data-dashlane-rid="0543bf43fce76f5d" data-form-type="">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="post" action="<?php echo site_url('Visiteur/lister_les_produits') ?>">
+                    <input class="form-control form-control-dark" type="text" name="search" id="search" placeholder="Rechercher un jeu">
             </form>
 
-            <div class="text-end">
+            <div class="text-end d-flex flex-row">
+            <?php if ($session->get('statut') == 2) { ?>
+                <div class="bg-danger rounded-pill div-admin mx-2">
+                    <p class="admin">Administrateur</p>
+                </div>
+                <?php } ?>
+            <?php if ($session->get('statut') == 3) { ?>
+                <div class="bg-danger rounded-pill div-admin mx-2">
+                    <p class="admin">SuperAdministrateur</p>
+                </div>
+                <?php } ?>
                 <?php if (is_null($session->get('statut'))) { ?>
-                    <button type="button" class="btn btn-outline-light btn-sm me-2">
+                    <button type="button" class="btn btn-primary text-light btn-sm me-2">
                         <a class="dropdown-item" href="<?php echo site_url('Visiteur/se_connecter') ?>">Se connecter</a>
                     </button>
-                    <button type="button" class="btn btn-sm btn-warning">
+                    <button type="button" class="btn btn-sm btn-primary">
                         <a class="dropdown-item" href="<?php echo site_url('Visiteur/s_enregistrer') ?>">S'inscrire</a>
                     </button>
                     <?php } else { ?>
@@ -112,7 +121,17 @@ if ($session->has('cart')) {
                     </ul>
                 </div>
             <?php endif; ?>
-            </div>
+        </div>
+        <?php if ($nb > 0) { ?>
+            <li class="nav-item list-unstyled mx-2">
+                <a href="<?php echo site_url('Visiteur/afficher_panier') ?>" class="text-primary ft">
+                <button class="btn btn-primary btn-sm d-flex flex-row">
+                    <i class="bi bi-bag"></i>
+                    <span><?= $nb ?></span>
+                </button>
+                </a>
+            </li>
+        <?php } ?>
         </div>
     </div>
 </header>

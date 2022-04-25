@@ -1,10 +1,10 @@
 <?php $session = session(); ?>
-<h2 class='titrepage'><?php echo $TitreDeLaPage ?></h2>
-<hr />
+<h2 class='titrepage m-3'><?php echo $TitreDeLaPage ?></h2>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="container">
+            <div class="container bloc-lister">
                 <div class="row">
                     <?php if ($lesProduits == null) {
                         echo '<h3>Aucun produit correspondant à cette recherche</h3>';
@@ -58,15 +58,15 @@
 
 
                     <?php if ($count % 4 == 0) {
-                            echo '</div><br/><hr/><br/><div class="row">';
+                            echo '</div><br/><br/><div class="row">';
                         }
                     } ?>
                 </div>
 
             </div>
-
+<div class="d-flex align-items-center justify-content-center pagination m-3">
             <p><?= $pager->links() ?></p>
-
+                </div>
         </div>
 
 
