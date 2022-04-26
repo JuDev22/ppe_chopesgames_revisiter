@@ -13,7 +13,7 @@
                     foreach ($lesProduits as $unProduit) {
                         $count++; ?>
 
-                        <div class="col-md-3  col-sm-6">
+                        <div class="col-md-3 col-sm-6 produit">
                             <div class="product-grid">
                                 <div class="product-image">
                                     <a href="<?= base_url() . '/index.php/Visiteur/voir_un_produit/' . $unProduit["NOPRODUIT"] ?>">
@@ -48,7 +48,7 @@
                                         <?php if ($unProduit["DISPONIBLE"] == 0) {
                                             echo 'Rupture de stock..';
                                         } ?><br />
-                                        <div class='container'> <a class="add-to-cart btn <?php if ($unProduit["DISPONIBLE"] == 0) {
+                                        <div class='container'> <a class="add-to-cart btn btn-panier<?php if ($unProduit["DISPONIBLE"] == 0) {
                                                                                                 echo 'disabled';
                                                                                             } ?>" href="<?php echo site_url('Visiteur/ajouter_au_panier/' . $unProduit["NOPRODUIT"]);  ?>">Ajouter au panier</a>
                                         </div> <?php } ?>

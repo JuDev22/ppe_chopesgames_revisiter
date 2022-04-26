@@ -1,3 +1,7 @@
+Logo
+Mail
+Routes
+
 # CodeIgniter 4 Development
 
 [![Build Status](https://github.com/codeigniter4/CodeIgniter4/workflows/PHPUnit/badge.svg)](https://github.com/codeigniter4/CodeIgniter4/actions?query=workflow%3A%22PHPUnit%22)
@@ -31,11 +35,11 @@ You might also be interested in the [API documentation](https://codeigniter4.git
 
 ## Important Change with index.php
 
-index.php is no longer in the root of the project! It has been moved inside the *public* folder,
+index.php is no longer in the root of the project! It has been moved inside the _public_ folder,
 for better security and separation of components.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+This means that you should configure your web server to "point" to your project's _public_ folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter _public/..._, as the rest of your logic and the
 framework are exposed.
 
 **Please** read the user guide for a better explanation of how CI4 works!
@@ -71,12 +75,11 @@ to optional packages, with their own repository.
 
 We **are** accepting contributions from the community!
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing/README.md).
+Please read the [_Contributing to CodeIgniter_](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing/README.md).
 
 ## Server Requirements
 
 PHP version 7.3 or higher is required, with the following extensions installed:
-
 
 - [intl](http://php.net/manual/en/intl.requirements.php)
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library

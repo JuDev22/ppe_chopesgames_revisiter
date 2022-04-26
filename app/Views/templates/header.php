@@ -15,12 +15,20 @@ if ($session->has('cart')) {
     <link rel="stylesheet" href="<?= css_url('style') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
+<body id="body" onload="loader()">
+<div id="loader" class="loader__wrap d-none" role="alertdialog" aria-busy="true" aria-live="polite" aria-label="Loading…">
+    <div class="loader" aria-hidden="true">
+        <div class="loader__sq"></div>
+        <div class="loader__sq"></div>
+    </div>
+</div>
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="<?php echo site_url('Visiteur/accueil') ?>" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img class="d-block" style="width:30px;height:30px;'" src="<?= base_url() . '/assets/images/mario-bros.png' ?>" alt="ChopesGames">
+                <img class="d-block" style="width:60px;height:60px;'" src="<?= base_url() . '/assets/images/CGlogo.png' ?>" alt="ChopesGames">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
