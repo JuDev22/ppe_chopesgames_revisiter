@@ -37,6 +37,7 @@ class Backoffice extends BaseController
         $data_bis['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
         $data_bis['marques'] = $modelMarq->retourner_marques();
+        $data_bis['title'] = 'ChopeGames - Connexion';
         echo view('templates/header', $data_bis);
         if (!$this->validate($rules, $messages)) {
             if ($_POST) //if ($this->request->getMethod()=='post') // si c'est une tentative d'enregistrement // erreur IDE !!

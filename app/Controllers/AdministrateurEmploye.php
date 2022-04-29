@@ -21,6 +21,8 @@ class AdministrateurEmploye extends BaseController
         $data['commandesNonTraitees'] = $ModelCom->retourner_commande_client();
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
+        $data['title'] = 'ChopeGames - Commande non traitée';
+
         
         // $data['clientCommande'] = $ModelCom->retourner_commande($noCommande);
         echo view('templates/header', $data);
@@ -37,6 +39,7 @@ class AdministrateurEmploye extends BaseController
         $data['marques'] = $modelMarq->retourner_marques();
         $ModelCom = new Modele_commande();
         $data['commandes'] = $ModelCom->retourner_commandes();
+        $data['title'] = 'ChopeGames - Afficher clients';
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/afficher_les_clients');
         echo view('templates/footer');
@@ -55,6 +58,7 @@ class AdministrateurEmploye extends BaseController
         $data['commandes'] = $modelComm->retourner_commandes_client($noclient);
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $data['title'] = 'ChopeGames - Historique commandes';
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/historique_des_commandes');
         echo view('templates/footer');
@@ -73,6 +77,8 @@ class AdministrateurEmploye extends BaseController
         $data['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
+        $data['title'] = 'ChopeGames - Détails commande';
+
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/details_commande');
         echo view('templates/footer');
@@ -90,6 +96,7 @@ class AdministrateurEmploye extends BaseController
         $data['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
+        $data['title'] = 'ChopeGames - Détails commandes non traitées';
         echo view('templates/header', $data);
         echo view('AdministrateurEmploye/details_commande_non_traitee');
         echo view('templates/footer');

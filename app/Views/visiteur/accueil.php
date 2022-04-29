@@ -1,6 +1,6 @@
-<h2 class='titrepage my-5'><?= $TitreDeLaPage ?></h2>
+<h2 class='titrepage my-3 text-white'><?= $TitreDeLaPage ?></h2>
 <div class="d-flex justify-content-center">
-    <div class="container d-flex flex-row p-2 m-5 accueil" style="justify-content: space-around;">
+    <div class="container d-flex flex-row p-2 accueil" style="justify-content: space-around;">
         <div class="categorie">
             <h3 class="color">Nos catégories : </h3>
             <?php foreach ($categories as $categorie) {
@@ -24,7 +24,7 @@
                         $class = '';
                     } ?>
                     <div class="carousel-item <?php echo $class; ?>" data-bs-interval="1000">
-                        <a href="<?= base_url() . '/index.php/Visiteur/voir_un_produit/' . $vitrine["NOPRODUIT"] ?>">
+                        <a href="<?= base_url() . '/Visiteur/voir_un_produit/' . $vitrine["NOPRODUIT"] ?>">
                             <?= img_class($vitrine["NOMIMAGE"] . '.jpg', $vitrine["LIBELLE"], 'd-block'); ?>
                         </a>
                     </div>

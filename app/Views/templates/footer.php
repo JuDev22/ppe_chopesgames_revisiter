@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark mx-0 sticky-lg-bottom">
+<div class="container-fluid bg-dark mx-0 mt-5 sticky-lg-bottom">
     <footer class="column px-1 py-3 mt-1 border-top">
         <div class="d-flex flex-column">
             <div class="col d-flex align-items-center justify-content-center flex-column text-center">

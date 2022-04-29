@@ -26,6 +26,7 @@ class AdministrateurSuper extends BaseController
         $data['infoLettre'] = $ModelNouv->retourner_lettre();
         $ModelAbo = new ModeleAbonne();
         $data['TitreDeLaPage'] = "Lettre d'information";
+        $data['title'] = 'ChopeGames - Lettre information';
         $rules = [
             'objet' => 'required|max_length[20]',
             'titre' => 'required|max_length[20]',
@@ -91,6 +92,7 @@ class AdministrateurSuper extends BaseController
         $data['marques'] = $modelMarq->retourner_marques();
         $modelAdmin = new ModeleAdministrateur();
         $data['TitreDeLaPage'] = 'Modifier un admin';
+        $data['title'] = 'ChopeGames - Modifier un admin';
 
         $rules = [ //régles de validation creation
             'identifiant' => 'required|is_unique[administrateur.identifiant,id,{id}]',
@@ -145,6 +147,7 @@ class AdministrateurSuper extends BaseController
         $data['admins'] = $modelAdmin->retourner_admins();
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $data['title'] = 'ChopeGames - Afficher les admins';
         echo view('templates/header', $data);
         echo view('AdministrateurSuper/afficher_les_admins');
         echo view('templates/footer');
@@ -157,6 +160,7 @@ class AdministrateurSuper extends BaseController
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
         $data['TitreDeLaPage'] = 'Ajouter un admin';
+        $data['title'] = 'ChopeGames - Ajouter un admin';
 
         $rules = [ //régles de validation creation
             'identifiant' => 'required|is_unique[administrateur.identifiant]',
@@ -209,6 +213,8 @@ class AdministrateurSuper extends BaseController
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
         $data['TitreDeLaPage'] = 'Ajouter une marque';
+        $data['title'] = 'ChopeGames - Ajouter une marque';
+
 
         $rules = [ //régles de validation creation
             'nom' => 'required|is_unique[marque.nom]',
@@ -256,6 +262,8 @@ class AdministrateurSuper extends BaseController
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
         $data['TitreDeLaPage'] = 'Ajouter une categorie';
+        $data['title'] = 'ChopeGames - Ajouter une categorie';
+
 
         $rules = [ //régles de validation creation
             'txtLibelle' => 'required|is_unique[categorie.libelle]',
@@ -303,6 +311,8 @@ class AdministrateurSuper extends BaseController
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
         $data['TitreDeLaPage'] = 'Ajouter un produit';
+        $data['title'] = 'ChopeGames - Ajouter un produit';
+
 
         $rules = [ //régles de validation creation
             'Categorie' => 'required',
@@ -416,6 +426,8 @@ class AdministrateurSuper extends BaseController
         $data['marques'] = $modelMarq->retourner_marques();
         $modelProd = new ModeleProduit();
         $data['TitreDeLaPage'] = 'Modifier un produit';
+        $data['title'] = 'ChopeGames - Modifier un produit';
+
 
         $rules = [ //régles de validation creation
             'Categorie' => 'required',
@@ -471,6 +483,8 @@ class AdministrateurSuper extends BaseController
 
     function modifier_identifiants_bancaires_site()
     {
+        $data['title'] = 'ChopeGames - Id bancaire';
+
         $modelIdent = new ModeleIdentifiant();
         $data['identifiant'] = $modelIdent->retourner_identifiant();
 

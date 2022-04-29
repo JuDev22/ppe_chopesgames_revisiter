@@ -1,5 +1,5 @@
 <?php $session = session(); ?>
-<h2 class='titrepage m-3'><?php echo $TitreDeLaPage ?></h2>
+<h2 class='titrepage my-3'><?php echo $TitreDeLaPage ?></h2>
 
 <div class="container-fluid">
     <div class="row">
@@ -16,7 +16,7 @@
                         <div class="col-md-3 col-sm-6 produit">
                             <div class="product-grid">
                                 <div class="product-image">
-                                    <a href="<?= base_url() . '/index.php/Visiteur/voir_un_produit/' . $unProduit["NOPRODUIT"] ?>">
+                                    <a href="<?= base_url() . '/Visiteur/voir_un_produit/' . $unProduit["NOPRODUIT"] ?>">
                                         <?php
                                         if (!empty($unProduit["NOMIMAGE"])) echo img_class($unProduit["NOMIMAGE"] . '.jpg', $unProduit["LIBELLE"], 'img-responsive image');
                                         else echo img_class('nonimage.jpg', $unProduit["LIBELLE"], 'img-responsive image');
@@ -24,7 +24,7 @@
                                     </a>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title"><a href="<?= base_url() . '/index.php/Visiteur/voir_un_produit/' . $unProduit["NOPRODUIT"] ?>"><?php echo $unProduit["LIBELLE"] ?></a>
+                                    <h3 class="title"><a href="<?= base_url() . '/Visiteur/voir_un_produit/' . $unProduit["NOPRODUIT"] ?>"><?php echo $unProduit["LIBELLE"] ?></a>
                                         <?php if ($session->get('statut') == 3) { ?>
                                             <a href="<?php echo site_url('AdministrateurSuper/Vitrine/' . $unProduit["NOPRODUIT"]);  ?>"><?php if ($unProduit['VITRINE'] == 1) {
                                                                                                                                                 echo "<i class='fas fa-star fav'></i>";

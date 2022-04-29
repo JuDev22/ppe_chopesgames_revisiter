@@ -18,6 +18,7 @@ class Visiteur extends BaseController
     public function abonne()
     {
         $ModelAbo = new ModeleAbonne();
+        $data['title'] = 'ChopeGames - Vente de jeux vidéos';
         if ($this->request->getPost('submit')) {
             $email = $this->request->getPost('email');
             if ($ModelAbo->verification($email) == null) {
@@ -38,6 +39,7 @@ class Visiteur extends BaseController
         $modelProd = new ModeleProduit();
         $data['vitrines'] = $modelProd->retourner_vitrine();
         $data['TitreDeLaPage'] = 'Accueil';
+        $data['title'] = 'ChopeGames - Accueil';
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
@@ -61,7 +63,8 @@ class Visiteur extends BaseController
             $data['lesProduits'] = $modelProd->produits_search($match)->paginate(12);
         }
         $data['pager'] = $modelProd->pager;
-        $data['TitreDeLaPage'] = 'Nos produits';
+        $data['title'] = 'ChopeGames - Nos jeux';
+        $data['TitreDeLaPage'] = 'Nos jeux';
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
@@ -84,6 +87,7 @@ class Visiteur extends BaseController
             $data['marques'] = $modelMarq->retourner_marques();
             $data['lamarque'] = $marque["NOM"];
             $data['TitreDeLaPage'] = $marque["NOM"];
+            $data['title'] = 'ChopeGames - ' . $marque["NOM"];
             $modelCat = new ModeleCategorie();
             $data['categories'] = $modelCat->retourner_categories();
             $modelProd = new ModeleProduit();
@@ -109,6 +113,7 @@ class Visiteur extends BaseController
             $data['categories'] = $modelCat->retourner_categories();
 
             $data['TitreDeLaPage'] = $categorie["LIBELLE"];
+            $data['title'] = 'ChopeGames - '. $categorie["LIBELLE"];
             $modelProd = new ModeleProduit();
             $data["lesProduits"] = $modelProd->retouner_produits_categorie($nocategorie)->paginate(12);
             $modelMarq = new ModeleMarque();
@@ -132,6 +137,7 @@ class Visiteur extends BaseController
         }
 
         $data['TitreDeLaPage'] = $data['unProduit']["LIBELLE"];
+        $data['title'] = 'ChopeGames - '.$data["unProduit"]["LIBELLE"];
         $categorie = $data['unProduit']["NOCATEGORIE"];
         $marque = $data['unProduit']["NOMARQUE"];
 
@@ -151,6 +157,7 @@ class Visiteur extends BaseController
     public function ajouter_au_panier($noProduit)
     {
         $modelProd = new ModeleProduit();
+        $data['title'] = 'ChopeGames - Panier';
         $produit = $modelProd->retourner_produits($noProduit);
         $item = array(
             'id'    => $produit["NOPRODUIT"],
@@ -193,6 +200,7 @@ class Visiteur extends BaseController
         $session = session();
         helper(['form']);
         $modelCat = new ModeleCategorie();
+        $data['title'] = 'ChopeGames - Panier';
         $data['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
         $data['marques'] = $modelMarq->retourner_marques();
@@ -231,6 +239,25 @@ class Visiteur extends BaseController
         return redirect()->to('Visiteur/afficher_panier');
     }
 
+    public function catById($noCategorie){
+        $modelCat = new ModeleCategorie();
+        $libelle = $modelCat->retournerNumCategorie($noCategorie);
+    //redirection   
+        if ($noCategorie != null){ 
+        return redirect()->to('categorie/'.$libelle['LIBELLE']);
+        }
+    //else redirect 404 ?
+    }
+    public function catByLibelle($libelle){
+        $modelCat = new ModeleCategorie();
+        $noCategorie = $modelCat->retournerLibelleCategorie($libelle);
+    //redirection   
+        if ($libelle != null){ 
+            Visiteur::lister_les_produits_par_categorie($noCategorie);
+        }
+    //else redirect 404 ?
+    }
+    
     public function s_enregistrer()
     {
 
@@ -282,6 +309,8 @@ class Visiteur extends BaseController
         $data_bis['categories'] = $modelCat->retourner_categories();
         $modelMarq = new ModeleMarque();
         $data_bis['marques'] = $modelMarq->retourner_marques();
+        $data_bis['title'] = 'ChopeGames - Connexion';
+        $data['title'] = "ChopeGames - S'enregistrer";
         echo view('templates/header', $data_bis);
         $modelCli = new ModeleClient();
 
@@ -333,6 +362,7 @@ class Visiteur extends BaseController
         $validation =  \Config\Services::validation();
         $session = session();            
         $data['TitreDeLaPage'] = 'Se connecter';
+        $data['title'] = 'ChopeGames - Connexion';
         $rules = [ //régles de validation
             'txtEmail' => 'required|valid_email|is_not_unique[client.EMAIL,id,{id}]',
             'txtMdp'   => 'required|is_not_unique[client.MOTDEPASSE,id,{id}]'
@@ -353,6 +383,7 @@ class Visiteur extends BaseController
         $data_bis['marques'] = $modelMarq->retourner_marques();
         $modelCat = new ModeleCategorie();
         $data_bis['categories'] = $modelCat->retourner_categories();
+        $data_bis['title'] = 'ChopeGames - Connexion';
         echo view('templates/header', $data_bis);
         if (!$this->validate($rules, $messages)) {
             if ($_POST) //if ($this->request->getMethod()=='post') // si c'est une tentative d'enregistrement // erreur IDE !!

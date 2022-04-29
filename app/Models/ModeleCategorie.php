@@ -11,6 +11,15 @@ class ModeleCategorie extends Model
     protected $allowedFields = ['NOCATEGORIE', 'LIBELLE'];
     protected $primaryKey= 'NOCATEGORIE';
 
+    public function retournerNumCategorie($noCategorie)
+    {
+    return $this->select('LIBELLE')->where(['NOCATEGORIE' => $noCategorie])->first();
+    }
+    public function retournerLibelleCategorie($libelle)
+    {
+    return $this->select('NOCATEGORIE')->where(['LIBELLE' => $libelle])->first();
+    }
+
     public function inserer_une_categorie($pDonneesAInserer)
     {
         return $this->insert($pDonneesAInserer);

@@ -7,10 +7,10 @@ if ($session->has('cart')) {
 } else $nb = 0; ?>
 
 <head>
-    <title>ChopesGames</title>
+    <title><?= $title ?></title>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() . 'assets/images/favicon.ico' ?>">
-    <link rel="alternate" type="application/rss+XML" title="ChopesGames" href="<?php echo site_url('AdministrateurSuper/flux_rss') ?>" />
+    <link rel="alternate" type="application/rss+XML" title="ChopeGames" href="<?php echo site_url('AdministrateurSuper/flux_rss') ?>" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= css_url('style') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -28,14 +28,14 @@ if ($session->has('cart')) {
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="<?php echo site_url('Visiteur/accueil') ?>" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img class="d-block" style="width:60px;height:60px;'" src="<?= base_url() . '/assets/images/CGlogo.png' ?>" alt="ChopesGames">
+                <img class="d-block" style="width:60px;height:60px;'" src="<?= base_url() . '/assets/images/logoChopeWeb.png' ?>" alt="ChopesGames">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="<?php echo site_url('Visiteur/accueil') ?>" class="nav-link px-2 text-primary">Accueil</a>
+                    <a href="<?php echo site_url('/') ?>" class="nav-link px-2 text-primary">Accueil</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('Visiteur/lister_les_produits') ?>" class="nav-link px-2 text-primary">Nos produits</a>
+                    <a href="<?php echo site_url('jeux') ?>" class="nav-link px-2 text-primary">Nos jeux</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-primary px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,10 +83,10 @@ if ($session->has('cart')) {
                 <?php } ?>
                 <?php if (is_null($session->get('statut'))) { ?>
                     <button type="button" class="btn btn-primary text-light btn-sm me-2">
-                        <a class="dropdown-item" href="<?php echo site_url('Visiteur/se_connecter') ?>">Se connecter</a>
+                        <a class="dropdown-item" href="<?php echo site_url('connexion') ?>">Se connecter</a>
                     </button>
                     <button type="button" class="btn btn-sm btn-primary">
-                        <a class="dropdown-item" href="<?php echo site_url('Visiteur/s_enregistrer') ?>">S'inscrire</a>
+                        <a class="dropdown-item" href="<?php echo site_url('inscription') ?>">S'inscrire</a>
                     </button>
                     <?php } else { ?>
                 <div class="flex-shrink-0 dropdown">

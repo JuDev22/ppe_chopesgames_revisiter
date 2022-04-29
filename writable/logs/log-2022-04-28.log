@@ -1,0 +1,153 @@
+CRITICAL - 2022-04-28 05:57:35 --> Call to undefined method App\Models\Modele_commande::retourner_commandes
+#0 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurEmploye.php(39): CodeIgniter\Model->__call('retourner_comma...', Array)
+#1 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->afficher_les_clients()
+#2 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#3 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-28 06:55:53 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(121): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->lister_les_produits_par_categorie('16')
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 06:56:04 --> A non-numeric value encountered
+#0 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\wamp642\\www\\...', 89, Array)
+#1 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->lister_les_produits_parmarque('8')
+#2 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#3 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-28 06:58:21 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(121): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->lister_les_produits_par_categorie('11')
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:03:04 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(207): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->afficher_panier()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:05:33 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(209): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->afficher_panier()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:20:34 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(364): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:26:36 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(366): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:27:18 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(366): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->se_connecter()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:27:59 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(294): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->s_enregistrer()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:28:56 --> Undefined variable: marques
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 60, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Client.php(549): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\client->historique_des_commandes()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\client))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:29:29 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\Backoffice.php(40): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Backoffice->connexion()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backoffice))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:30:21 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurEmploye.php(26): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->commande_non_traite()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 07:32:00 --> Undefined variable: title
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 10, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurSuper.php(343): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->ajouter_un_produit()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-28 09:39:12 --> Array to string conversion
+#0 C:\wamp642\www\ChopeGames\app\Controllers\Visiteur.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp642\\www\\...', 247, Array)
+#1 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\Visiteur->catById('16')
+#2 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Visiteur))
+#3 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

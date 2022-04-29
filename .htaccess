@@ -1,5 +1,5 @@
 #DirectoryIndex index.php
-Options All -Indexes
+Options -Indexes
 	
 RewriteEngine On
-	RewriteRule (.*) public/$1
+	RewriteRule ^(.*)$ public/$1 [L]

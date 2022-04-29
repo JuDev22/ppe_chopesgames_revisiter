@@ -12,6 +12,7 @@ helper(['url', 'assets', 'form']);
 class client extends BaseController
 {
   public function droit_a_loubli(){
+    $DonneesInjectees['title'] = 'ChopeGames - Vente de jeux vidéos';
     $session = session();
     $modelCli = new ModeleClient();
     $client= $modelCli->retourner_client_par_no($session->get('id'));
@@ -544,6 +545,7 @@ ET PROBLEME AVEC IDENTIFIANT SITE SYSTEMATIQUE ! ! !
         $DonneesInjectees['commandes'] = $modelComm->retourner_commandes_client($session->get('id'));
         $modelCat = new ModeleCategorie();
         $DonneesInjectees['categories'] = $modelCat->retourner_categories();
+        $DonneesInjectees['title'] = 'ChopeGames - Vente de jeux vidéos';
         echo view('templates/header', $DonneesInjectees);
         echo view('Client/historique_des_commandes');
         echo view('templates/footer');
@@ -551,6 +553,7 @@ ET PROBLEME AVEC IDENTIFIANT SITE SYSTEMATIQUE ! ! !
 
     public function details_commande($nocommande = false)
     {
+      $DonneesInjectees['title'] = 'ChopeGames - Détails commande';
         if (empty($nocommande)) {
           return redirect()->to('Visiteur/lister_les_produits');
         }
