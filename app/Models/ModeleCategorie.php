@@ -11,11 +11,11 @@ class ModeleCategorie extends Model
     protected $allowedFields = ['NOCATEGORIE', 'LIBELLE'];
     protected $primaryKey= 'NOCATEGORIE';
 
-    public function retournerNumCategorie($noCategorie)
+    public function retournerLibelleCategorieById($noCategorie)
     {
     return $this->select('LIBELLE')->where(['NOCATEGORIE' => $noCategorie])->first();
     }
-    public function retournerLibelleCategorie($libelle)
+    public function retournerNoCategorieByLibelle($libelle)
     {
     return $this->select('NOCATEGORIE')->where(['LIBELLE' => $libelle])->first();
     }

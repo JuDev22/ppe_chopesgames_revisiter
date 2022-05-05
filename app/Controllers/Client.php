@@ -7,6 +7,7 @@ use App\Models\ModeleCategorie;
 use App\Models\ModeleIdentifiant;
 use App\Models\Modele_commande;
 use App\Models\ModeleLigne;
+use App\Models\ModeleMarque;
 
 helper(['url', 'assets', 'form']);
 class client extends BaseController
@@ -25,7 +26,7 @@ class client extends BaseController
       $client['MOTDEPASSE'] = null;
       $client['EMAIL'] = null;
       $modelCli->droit_a_loubli($client);
-      //dd($client);
+      $session->destroy();
     }
     return redirect()->to('Visiteur/lister_les_produits');
   }
@@ -542,6 +543,8 @@ ET PROBLEME AVEC IDENTIFIANT SITE SYSTEMATIQUE ! ! !
         }
         $modelCli = new ModeleClient();
         $DonneesInjectees['client'] = $modelCli->retourner_client_par_no($session->get('id'));
+        $modelMarq = new ModeleMarque();
+        $DonneesInjectees['marques'] = $modelMarq->retourner_marques();
         $modelComm = new Modele_commande();
         $DonneesInjectees['commandes'] = $modelComm->retourner_commandes_client($session->get('id'));
         $modelCat = new ModeleCategorie();
@@ -560,6 +563,8 @@ ET PROBLEME AVEC IDENTIFIANT SITE SYSTEMATIQUE ! ! !
         }
         $modelComm = new Modele_commande();
         $DonneesInjectees['commande'] = $modelComm->retourner_commande($nocommande);
+        $modelMarq = new ModeleMarque();
+        $DonneesInjectees['marques'] = $modelMarq->retourner_marques();
         $modelLig = new ModeleLigne();
         $DonneesInjectees['lignes'] = $modelLig->retourner_lignes($nocommande);
         $modelCat = new ModeleCategorie();

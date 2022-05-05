@@ -12,7 +12,7 @@ class ModeleAbonne extends Model{
         if ($this->findColumn('email') == $email){
             return null;
         } else {
-            $this->inserer($email);
+            $this->insert($email);
         }
     }
     public function inserer($email){

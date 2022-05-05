@@ -17,7 +17,7 @@ if ($session->has('cart')) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
-<body id="body" onload="cookie()">
+<body id="body">
 <div id="loader" class="loader__wrap" role="alertdialog" aria-busy="true" aria-live="polite" aria-label="Loading…">
     <div class="loader" aria-hidden="true">
         <div class="loader__sq"></div>

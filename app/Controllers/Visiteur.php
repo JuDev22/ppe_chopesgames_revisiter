@@ -17,22 +17,27 @@ class Visiteur extends BaseController
 
     public function abonne()
     {
+        $email = \Config\Services::email();
         $ModelAbo = new ModeleAbonne();
         $data['title'] = 'ChopeGames - Vente de jeux vidéos';
-        if ($this->request->getPost('submit')) {
-            $email = $this->request->getPost('email');
-            if ($ModelAbo->verification($email) == null) {
-                echo "Déjà abonné";
-            } else {
-                $to = $email;
-                $obj = "Inscription à la Newsletter de ChopesGames";
-                $msg = "Ceci est un message automatique, merci de ne pas répondre. Nous sommes ravis de vous acceuillir dans notre équipe ! Voici le mail de confirmation pour votre inscription sur notre site. Vous pouvez nous signaler votre retrait en nous envoyant un mail intitulé 'Droit à l'oublie'. Pour ces demandes, un délai de 30 jours nous est accordé pour faire le nécessaire, un mail de confirmation vous sera envoyer manuellement.
-                L'équipe de ChopesGames vous souhaite une bonne journée !";
-                mail($to, $obj, $msg);
-            }
-            //dd($ModelAbo->verification($email));
+        $emailClient = esc($this->request->getPost('txtEmail'));
+        $rules = [
+            'txtEmail' => 'required|valid_email|is_unique[abonne.EMAIL]',
+        ];
+        if ($this->validate($rules)){
+            $email->setSubject('Inscription à la Newsletter de ChopesGames');
+            //$email->setMailType('text'); 
+            $email->setFrom('b.julian.pro@gmail.com', 'ChopeGames', 'b.julian.pro@gmail.com');
+            $email->setTo($emailClient);
+            $message = "Ceci est un message automatique, merci de ne pas répondre. Nous sommes ravis de vous acceuillir dans notre équipe ! Voici le mail de confirmation pour votre inscription sur notre site. Vous pouvez nous signaler votre retrait en nous envoyant un mail intitulé 'Droit à l'oublie'. Pour ces demandes, un délai de 30 jours nous est accordé pour faire le nécessaire, un mail de confirmation vous sera envoyer manuellement.
+            L'équipe de ChopesGames vous souhaite une bonne journée !";
+            $email->setMessage($message);
+            $email->send();
+        } else {
+            echo '<div class="text-white">Déjà abonné</div>';
         }
         return redirect()->to('visiteur/lister_les_produits');
+        // }
     }
     public function accueil()
     {
@@ -74,7 +79,22 @@ class Visiteur extends BaseController
         echo view("Visiteur/lister_les_produits");
         echo view('templates/footer');
     }
-
+    
+    public function marqueById($idMarque){
+        $modelMarque = new ModeleMarque();
+        $noMarque = $modelMarque->retournerLibelleMarqueById($idMarque);
+        if ($noMarque != null){ 
+            return redirect()->to('marque/'.$noMarque['LIBELLE']);
+            }
+    }
+    public function marqueByLibelle($libelle)
+    {
+        $modelMarque = new ModeleMarque();
+        $noMarque = $modelMarque->retournerIdMarqueByLibelle($libelle);
+        if ($libelle != null){
+            Visiteur::lister_les_produits_parmarque($noMarque);
+        }
+    }
     public function lister_les_produits_parmarque($nomarque = false)
     {
         if ($nomarque == false) {
@@ -99,7 +119,25 @@ class Visiteur extends BaseController
             echo view('templates/footer');
         }
     }
-
+    
+    public function catById($noCategorie){
+        $modelCat = new ModeleCategorie();
+        $libelle = $modelCat->retournerLibelleCategorieById($noCategorie);
+    //redirection   
+        if ($noCategorie != null){ 
+        return redirect()->to('categorie/'.$libelle['LIBELLE']);
+        }
+    //else redirect 404 ?
+    }
+    public function catByLibelle($libelle){
+        $modelCat = new ModeleCategorie();
+        $noCategorie = $modelCat->retournerNoCategorieByLibelle($libelle);
+    //redirection   
+        if ($libelle != null){ 
+            Visiteur::lister_les_produits_par_categorie($noCategorie);
+        }
+    //else redirect 404 ?
+    }
     public function lister_les_produits_par_categorie($nocategorie = false)
     {
         if ($nocategorie == false) {
@@ -239,31 +277,6 @@ class Visiteur extends BaseController
         return redirect()->to('Visiteur/afficher_panier');
     }
 
-    public function catById($noCategorie){
-        $modelCat = new ModeleCategorie();
-        $libelle = $modelCat->retournerNumCategorie($noCategorie);
-    //redirection   
-        if ($noCategorie != null){ 
-        return redirect()->to('categorie/'.$libelle['LIBELLE']);
-        }
-    //else redirect 404 ?
-    }
-    public function catByLibelle($libelle){
-        $modelCat = new ModeleCategorie();
-        $noCategorie = $modelCat->retournerLibelleCategorie($libelle);
-    //redirection   
-        if ($libelle != null){ 
-            Visiteur::lister_les_produits_par_categorie($noCategorie);
-        }
-    //else redirect 404 ?
-    }
-    public function marqueById($idMarque){
-        $modelMarque = new ModeleMarque();
-        $noMarque = $modelMarque->retournerNumCategorie($idMarque);
-        if ($noMarque != null){ 
-            return redirect()->to('categorie/'.$noMarque['LIBELLE']);
-            }
-    }
     
     public function s_enregistrer()
     {
@@ -355,7 +368,7 @@ class Visiteur extends BaseController
             } else { // envoi d'une modification de compte
                 $id = $session->get('id');
                 if ($modelCli->update($id, $compte))
-                    $data['TitreDeLaPage'] = "Bravo ! Mise à jour effectuée";
+                    $data['TitreDeLaPage'] = "Mise à jour effectuée";
                 else $data['TitreDeLaPage'] = "Sorry";
             }
         }
@@ -367,41 +380,39 @@ class Visiteur extends BaseController
     {
         helper(['form']);
         $validation =  \Config\Services::validation();
-        $session = session();            
+        $session = session();     
         $data['TitreDeLaPage'] = 'Se connecter';
         $data['title'] = 'ChopeGames - Connexion';
         $rules = [ //régles de validation
-            'txtEmail' => 'required|valid_email|is_not_unique[client.EMAIL,id,{id}]',
+            'txtMail' => 'required|valid_email',
             'txtMdp'   => 'required|is_not_unique[client.MOTDEPASSE,id,{id}]'
         ];
-        
         $messages = [ //message à renvoyer en cas de non respect des règles de validation
-            'txtEmail' => [
-                'required' => 'Un Email est requis',
-                'valid_email' => 'Un Email valide est requis',
-                'is_not_unique' => 'Adresse E-mail incorrecte',
+            'txtMail' => [
+                'required' => 'Identifiants incorrects',
+                'valid_email' => 'Identifiants incorrects',
+                'is_not_unique' => 'Identifiants incorrects',
             ],
             'txtMdp'    => [
-                'required' => 'Un mot de passe est requis',
-                'is_not_unique' => 'Mot de passe incorrect',
+                'required' => 'Identifiants incorrects',
+                'is_not_unique' => 'Identifiants incorrects',
                 ]
             ];
-        $modelMarq = new ModeleMarque();
-        $data_bis['marques'] = $modelMarq->retourner_marques();
-        $modelCat = new ModeleCategorie();
-        $data_bis['categories'] = $modelCat->retourner_categories();
-        $data_bis['title'] = 'ChopeGames - Connexion';
-        echo view('templates/header', $data_bis);
-        if (!$this->validate($rules, $messages)) {
-            if ($_POST) //if ($this->request->getMethod()=='post') // si c'est une tentative d'enregistrement // erreur IDE !!
+            $modelMarq = new ModeleMarque();
+            $data_bis['marques'] = $modelMarq->retourner_marques();
+            $modelCat = new ModeleCategorie();
+            $data_bis['categories'] = $modelCat->retourner_categories();
+            $data_bis['title'] = 'ChopeGames - Connexion';
+            echo view('templates/header', $data_bis);
+            if (!$this->validate($rules, $messages)) {
+                if ($_POST) //if ($this->request->getMethod()=='post') // si c'est une tentative d'enregistrement // erreur IDE !!
                 $data['TitreDeLaPage'] = "Corriger votre formulaire";
-            else   $data['TitreDeLaPage'] = "Se connecter";
-            echo view('visiteur/se_connecter', $data); // sinon premier affichage
-        } else {
-            $modelCli = new ModeleClient();
-            $Identifiant = esc($this->request->getPost('txtEmail'));
-            $MdP = esc($this->request->getPost('txtMdp'));
-
+                else   $data['TitreDeLaPage'] = "Se connecter";
+                echo view('visiteur/se_connecter', $data); // sinon premier affichage
+            } else {
+                $modelCli = new ModeleClient();
+                $Identifiant = esc($this->request->getPost('txtMail'));
+                $MdP = esc($this->request->getPost('txtMdp'));
             $UtilisateurRetourne = $modelCli->retourner_clientParMail($Identifiant);
 
             if (!$UtilisateurRetourne == null) {
@@ -413,14 +424,15 @@ class Visiteur extends BaseController
                     }
                     $session->set('id', $UtilisateurRetourne["NOCLIENT"]);
                     $session->set('statut', 1);
-                    return redirect()->to('visiteur/lister_les_produits');
+                    return redirect()->to('jeux');
                 } else {
-                    $data['TitreDeLaPage'] = 'Mot de passe incorrect';
+                    $data['TitreDeLaPage'] = 'Identifiants incorrects';
                     echo view('visiteur/se_connecter', $data);
                 }
             } else {
-                $data['TitreDeLaPage'] = 'Adresse E-mail incorrecte';
-                echo view('visiteur/se_connecter', $data);
+                $data['TitreDeLaPage'] = 'Identifiants incorrects';
+                
+        echo view('visiteur/se_connecter', $data);
             }
         }
         echo view('templates/footer');

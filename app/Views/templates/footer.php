@@ -4,15 +4,15 @@
             <div class="col d-flex align-items-center justify-content-center flex-column text-center">
                 <h5 class="text-muted">Lettre d'information</h5>
                 <p class="text-muted">Abonnez-vous à notre lettre d'information pour ne rien rater</p>
-                <?= form_open('Visiteur/abonne') ?>
+                <?= form_open('Visiteur/abonne')?>
                 <div class="form-floating mb-3 d-flex flex-row">
-                    <input type="mail" class="form-control form-size" method="post" id="floatingInput" placeholder="Votre mail" value="<?= set_value('email') ?>">
-                    <label for="floatingInput">E-mail</label>
-                    <button class="btn color btn-sm m-3" type="submit">
-                        <i class="far fa-paper-plane"></i>
-                    </button>
+                <input class="form-control" type="input" name="txtEmail" value="<?= set_value('txtEmail') ?>" />
+                <label for="floatingInput">Email</label>
+                <button class="btn color btn-sm m-3" type="submit" name="submit">
+                    <i class="far fa-paper-plane"></i>
+                </button>
                 </div>
-                <?= form_close() ?>
+            <?= form_close()?>
             </div>
             <div class="d-flex flex-row">
 
