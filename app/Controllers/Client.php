@@ -15,7 +15,7 @@ class client extends BaseController
     $DonneesInjectees['title'] = 'ChopeGames - Vente de jeux vidéos';
     $session = session();
     $modelCli = new ModeleClient();
-    $client= $modelCli->retourner_client_par_no($session->get('id'));
+    $client = $modelCli->retourner_client_par_no($session->get('id'));
     if ($client != null){
       $client['NOM'] = null;
       $client['PRENOM'] = null;
@@ -23,6 +23,7 @@ class client extends BaseController
       $client['VILLE'] = null;
       $client['CODEPOSTAL'] = null;
       $client['MOTDEPASSE'] = null;
+      $client['EMAIL'] = null;
       $modelCli->droit_a_loubli($client);
       //dd($client);
     }

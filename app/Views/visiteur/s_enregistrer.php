@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="col-md-12 container">
                     <?php echo form_open('Visiteur/s_enregistrer') ?>
-                    <div class="form-con my-5">
+                    <div class=" my-5">
                     <br>
                     <h3 class="text-center text-primary"><?php echo $TitreDeLaPage ?></h3>
                     <?PHP if ($TitreDeLaPage == 'Corriger votre formulaire') echo service('validation')->listErrors();
@@ -46,12 +46,10 @@
                     <input class="form-control" type="password" name="txtMdp" id="mdp" value="<?php echo strip_tags(set_value('txtMdp')); ?>" />
                     <?php $session = session();
                     if ($session->get('statut') == 1) { ?>
-                    <?= form_open('client/droit_a_loubli') ?>
                     <div class="d-flex justify-content-center">
-                        <input type="submit" name="submit" class="btn bg-warning m-1" value="Droit à l'oubli">
+                        <a href="<?= site_url('Client/droit_a_loubli')?>" class="btn bg-warning m-1">Droit à l'oubli</a>
                         <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Modifier les coordonnées">
                     </div>
-                    <?= form_close() ?>
                     </div>
                     <?php } else { ?>
                     <div class="d-flex justify-content-center p-3">
@@ -59,7 +57,7 @@
                         <input type="submit" name="submit" class="btn btn-primary btn-md m-1" value="Crée mon compte">
                     </div>
                     <?php } ?>
-                    </form>
+                    <?= form_close() ?> 
                 </div>
             </div>
         </div>

@@ -1,6 +1,5 @@
 <div class="container d-flex justify-content-center align-items-center">
 <main class="form-signin d-flex justify-content-center align-items-center">
-    <div class="form-con">
 <?php echo form_open('Visiteur/se_connecter') ?>
     <h1 class="h3 mb-3 fw-normal text-center"><?php echo $TitreDeLaPage ?></h1>
     <?PHP if ($TitreDeLaPage == 'Corriger votre formulaire') echo service('validation')->listErrors(); ?>
@@ -17,7 +16,6 @@
     <input type="submit" name="submit" class="btn btn-primary btn-md mt-3 text-center" value="Soumettre">  
     <?php form_close()?>
 </main>
-</div>
 </div>
 <script language=javascript>
     function Affichermasquermdp() {

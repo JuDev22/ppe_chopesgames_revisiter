@@ -20,6 +20,8 @@ class AdministrateurSuper extends BaseController
         $validation = \Config\Services::validation();
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         $ModelAbo = new ModeleAbonne();
         $data['mailAbonne'] = $ModelAbo->recuperer_mail();
         $ModelNouv = new ModeleNouvelle();
@@ -147,6 +149,8 @@ class AdministrateurSuper extends BaseController
         $data['admins'] = $modelAdmin->retourner_admins();
         $modelCat = new ModeleCategorie();
         $data['categories'] = $modelCat->retourner_categories();
+        $modelMarq = new ModeleMarque();
+        $data['marques'] = $modelMarq->retourner_marques();
         $data['title'] = 'ChopeGames - Afficher les admins';
         echo view('templates/header', $data);
         echo view('AdministrateurSuper/afficher_les_admins');

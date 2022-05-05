@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark mx-0 mt-5 sticky-lg-bottom">
+<div class="container-fluid bg-grey mx-0 mt-5 sticky-lg-bottom">
     <footer class="column px-1 py-3 mt-1 border-top">
         <div class="d-flex flex-column">
             <div class="col d-flex align-items-center justify-content-center flex-column text-center">
@@ -17,7 +17,7 @@
             <div class="d-flex flex-row">
 
                 <div class="col d-flex align-items-center justify-content-center">
-                    <p class="text-muted txt-footer">© 2022 | ChopesGames - Julian</p>
+                    <p class="text-muted txt-footer">© 2022 | ChopesGames - Julian | <a href="assets/mentionsLegales.pdf" target="blank">Mentions légales</a> </p>
                 </div>
                 <div class="col d-flex align-items-center justify-content-center flex-column">
                     <h5 class="text-muted">Nous contacter</h5>
@@ -62,6 +62,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../../../public/assets/js/loader.js"></script>
+<script src="<?= base_url('assets/js/loader.js')?>"></script>
 </body>
 </html>

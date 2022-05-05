@@ -17,28 +17,28 @@ if ($session->has('cart')) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
-<body id="body" onload="loader()">
-<div id="loader" class="loader__wrap d-none" role="alertdialog" aria-busy="true" aria-live="polite" aria-label="Loading…">
+<body id="body" onload="cookie()">
+<div id="loader" class="loader__wrap" role="alertdialog" aria-busy="true" aria-live="polite" aria-label="Loading…">
     <div class="loader" aria-hidden="true">
         <div class="loader__sq"></div>
         <div class="loader__sq"></div>
     </div>
 </div>
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-grey text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="<?php echo site_url('Visiteur/accueil') ?>" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img class="d-block" style="width:60px;height:60px;'" src="<?= base_url() . '/assets/images/logoChopeWeb.png' ?>" alt="ChopesGames">
+                <img class="d-block me-3" style="width:60px;height:60px;'" src="<?= base_url() . '/assets/images/logoChopeWeb.png' ?>" alt="ChopesGames">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="<?php echo site_url('/') ?>" class="nav-link px-2 text-primary">Accueil</a>
+                    <a href="<?php echo site_url('/') ?>" class="nav-link px-2 text-white">Accueil</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('jeux') ?>" class="nav-link px-2 text-primary">Nos jeux</a>
+                    <a href="<?php echo site_url('jeux') ?>" class="nav-link px-2 text-white">Nos jeux</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-primary px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         Nos catégories
                     </a>
                     <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden over" style="width: 280px">
@@ -52,7 +52,7 @@ if ($session->has('cart')) {
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-primary px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white px-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         Nos marques
                     </a>
                     <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px">
@@ -82,10 +82,10 @@ if ($session->has('cart')) {
                 </div>
                 <?php } ?>
                 <?php if (is_null($session->get('statut'))) { ?>
-                    <button type="button" class="btn btn-primary text-light btn-sm me-2">
+                    <button type="button" class="btn btn-secon text-light btn-sm me-2">
                         <a class="dropdown-item" href="<?php echo site_url('connexion') ?>">Se connecter</a>
                     </button>
-                    <button type="button" class="btn btn-sm btn-primary">
+                    <button type="button" class="btn btn-sm btn-secon">
                         <a class="dropdown-item" href="<?php echo site_url('inscription') ?>">S'inscrire</a>
                     </button>
                     <?php } else { ?>

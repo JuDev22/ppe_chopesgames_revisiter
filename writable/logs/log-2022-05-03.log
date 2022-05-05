@@ -1,0 +1,58 @@
+CRITICAL - 2022-05-03 01:49:31 --> Undefined variable: marques
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 60, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurSuper.php(151): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->afficher_les_admins()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-03 02:13:08 --> Undefined variable: marques
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 60, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurSuper.php(54): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->lettre_information()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-03 02:14:13 --> Undefined variable: marques
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 60, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurSuper.php(56): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->lettre_information()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-03 02:14:39 --> Undefined variable: marques
+#0 C:\wamp642\www\ChopeGames\app\Views\templates\header.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp642\\www\\...', 60, Array)
+#1 C:\wamp642\www\ChopeGames\system\View\View.php(214): include('C:\\wamp642\\www\\...')
+#2 C:\wamp642\www\ChopeGames\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp642\www\ChopeGames\system\Common.php(1097): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#4 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurSuper.php(56): view('templates/heade...', Array)
+#5 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurSuper->lettre_information()
+#6 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurSuper))
+#7 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-03 05:57:03 --> Call to undefined method App\Models\Modele_commande::retourner_commandes
+#0 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurEmploye.php(41): CodeIgniter\Model->__call('retourner_comma...', Array)
+#1 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->afficher_les_clients()
+#2 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#3 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-03 06:00:08 --> Call to undefined method App\Models\Modele_commande::retourner_commandes
+#0 C:\wamp642\www\ChopeGames\app\Controllers\AdministrateurEmploye.php(110): CodeIgniter\Model->__call('retourner_comma...', Array)
+#1 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(824): App\Controllers\AdministrateurEmploye->commande_traitee('74')
+#2 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdministrateurEmploye))
+#3 C:\wamp642\www\ChopeGames\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp642\www\ChopeGames\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

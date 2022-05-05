@@ -12,23 +12,23 @@
         </div>
         <div class="col-md-6">
             <div>
-                <h3><?php echo $unProduit["LIBELLE"] ?></h3>
+                <h3 class="text-white"><?php echo $unProduit["LIBELLE"] ?></h3>
                 <hr />
                 <?php echo anchor('Visiteur/lister_les_produits_parmarque/' . $marque["NOMARQUE"], $marque["NOM"]);
                 echo '<hr/>';
                 echo anchor('Visiteur/lister_les_produits_par_categorie/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]);
                 echo '<hr/>'; ?>
-                <div>
+                <div class="text-white">
                     <?php echo number_format((($unProduit["PRIXHT"]) + ($unProduit["TAUXTVA"])), 2, ",", ' '), '€' ?>
                 </div><br />
                 <?php if ($session->get('statut') == 3) { ?>
-                    <a class="btn btn-warning" href="<?php echo site_url('AdministrateurSuper/modifier_produit/' . $unProduit["NOPRODUIT"]);  ?>">Modifier</a>
+                    <a class="btn btn-warning text-white" href="<?php echo site_url('AdministrateurSuper/modifier_produit/' . $unProduit["NOPRODUIT"]);  ?>">Modifier</a>
                     <?php if ($unProduit["DISPONIBLE"] == 0) {
                     ?>
-                        <a class="btn btn-warning" href="<?php echo site_url('AdministrateurSuper/rendre_disponible/' . $unProduit["NOPRODUIT"]);  ?>">Rendre disponible</a>
+                        <a class="btn btn-warning text-white" href="<?php echo site_url('AdministrateurSuper/rendre_disponible/' . $unProduit["NOPRODUIT"]);  ?>">Rendre disponible</a>
                     <?php } else { ?>
 
-                        <a class="btn btn-danger" href="<?php echo site_url('AdministrateurSuper/rendre_indisponible/' . $unProduit["NOPRODUIT"]);  ?>">Rendre indisponible</a>
+                        <a class="btn btn-danger text-white" href="<?php echo site_url('AdministrateurSuper/rendre_indisponible/' . $unProduit["NOPRODUIT"]);  ?>">Rendre indisponible</a>
                     <?php }
                 } else { ?>
                     <?php if ($unProduit["DISPONIBLE"] == 0) {

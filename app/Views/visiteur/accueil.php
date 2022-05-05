@@ -1,7 +1,20 @@
+<div class="modal modal-alert position-static d-block bg-secondary py-5" id="cookie" tabindex="-1" role="dialog" id="modalChoice">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-body p-4 text-center">
+        <p class="mb-0">Nous savons que vous ne les aimez pas, mais un choix s'impose 😊.</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>Accepter</strong></button>
+        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Refuser</button>
+      </div>
+    </div>
+  </div>
+</div>
 <h2 class='titrepage my-3 text-white'><?= $TitreDeLaPage ?></h2>
 <div class="d-flex justify-content-center">
-    <div class="container d-flex flex-row p-2 accueil" style="justify-content: space-around;">
-        <div class="categorie">
+    <div class="container d-flex flex-row p-2" style="justify-content: space-around;">
+        <div class="categorie accueil">
             <h3 class="color">Nos catégories : </h3>
             <?php foreach ($categories as $categorie) {
                 echo '<h6 class="txt-cat">' . anchor('Visiteur/lister_les_produits_par_categorie/' . $categorie["NOCATEGORIE"], $categorie["LIBELLE"]) . '</h6>'; ?><?php } ?>
@@ -39,7 +52,7 @@
   </button>
             </div>
         </div>
-        <div class="marque">
+        <div class="marque accueil">
             <h3 class="color"> Nos marques : </h3>
             <?php foreach ($marques as $marque) {
                 echo '<h6 class="txt-marque">' . anchor('Visiteur/lister_les_produits_parmarque/' . $marque["NOMARQUE"], $marque["NOM"]) . '</h6>'; ?><?php } ?>

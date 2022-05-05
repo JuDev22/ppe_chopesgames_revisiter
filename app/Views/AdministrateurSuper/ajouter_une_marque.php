@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
-                <div class="col-md-12 container form-con my-5">
+                <div class="col-md-12 container  my-5">
                     <br>
                     <h2 class="text-primary"><?php echo $TitreDeLaPage ?></h2>
                     <?php if ($TitreDeLaPage == 'Corriger votre formulaire') echo service('validation')->listErrors();

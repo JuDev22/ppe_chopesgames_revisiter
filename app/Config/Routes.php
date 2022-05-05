@@ -32,7 +32,7 @@ $routes->get('/','Visiteur::accueil');
 $routes->get('jeux','Visiteur::lister_les_produits');
 $routes->get('Visiteur/lister_les_produits_par_categorie/(:num)','Visiteur::catById/$1');
 $routes->get('categorie/(:alpha)','Visiteur::catByLibelle/$1');
-$routes->get('Visteur/lister_les_produits_parmarque/(:num)','Visiteur::marqueById');
+$routes->get('Visteur/lister_les_produits_parmarque/(:num)','Visiteur::marqueById/$1');
 $routes->get('marque/(:alpha)','Visiteur::catByLibelle/$1');
 $routes->get('connexion','Visiteur::se_connecter');
 $routes->get('inscription',"Visiteur::s_enregistrer");

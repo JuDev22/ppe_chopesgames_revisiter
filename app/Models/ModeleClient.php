@@ -25,6 +25,7 @@ class ModeleClient extends Model
                     ->set('VILLE', $client['VILLE'])
                     ->set('CODEPOSTAL', $client['CODEPOSTAL'])
                     ->set('MOTDEPASSE', $client['MOTDEPASSE'])
+                    ->set('EMAIL', $client['EMAIL'])
                     ->update();
     }
     public function retourner_client_par_no($noclient)

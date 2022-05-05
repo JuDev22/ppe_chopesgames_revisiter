@@ -11,6 +11,10 @@ class ModeleMarque extends Model
     protected $allowedFields = ['NOMARQUE','NOM'];
     protected $primaryKey = 'NOMARQUE';
 
+    public function retournerNomMarque($nom)
+    {
+        return $this->select('NOM')->where(['NOMARQUE' => $nom])->first();
+    }
     public function inserer_une_categorie($pDonneesAInserer)
     {
         return $this->insert($pDonneesAInserer);

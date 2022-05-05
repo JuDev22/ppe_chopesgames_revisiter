@@ -257,6 +257,13 @@ class Visiteur extends BaseController
         }
     //else redirect 404 ?
     }
+    public function marqueById($idMarque){
+        $modelMarque = new ModeleMarque();
+        $noMarque = $modelMarque->retournerNumCategorie($idMarque);
+        if ($noMarque != null){ 
+            return redirect()->to('categorie/'.$noMarque['LIBELLE']);
+            }
+    }
     
     public function s_enregistrer()
     {

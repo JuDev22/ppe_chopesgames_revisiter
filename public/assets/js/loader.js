@@ -1,12 +1,14 @@
-function loader(){
-    if (window.onload) {
-        document.getElementById('body').classList.add('d-none');
-        document.getElementById('loader').classList.remove('d-none');
-    } else{
-        document.getElementById('body').classList.remove('d-none');
-        document.getElementById('loader').classList.add('d-none');
+document.onreadystatechange = function () {
+    if (document.readyState != 'complete') {
+        document.querySelector("body").style.visibility = 'hidden';
+        document.querySelector("#loader").style.visibility = 'visible';
+    }
+    else{
+        document.querySelector("body").style.visibility = 'visible';
+        document.querySelector("#loader").style.visibility = 'hidden';
     }
 }
-window.addEventListener("load", function() {
-    alert("Your page is loaded");
-}, false);
+function cookie(){
+    document.getElementById('cookie').setAttribute("tabindex","1")
+}
+

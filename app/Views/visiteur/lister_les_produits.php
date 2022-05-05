@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="container bloc-lister">
+            <div class="container">
                 <div class="row">
                     <?php if ($lesProduits == null) {
                         echo '<h3>Aucun produit correspondant à cette recherche</h3>';
